@@ -1,14 +1,30 @@
-.nav-link {
-    transition: color 0.3s ease;
-  }
-  
-  .nav-link:hover {
-    color: #ffb300; /* Change color on hover */
-  }
-  
-  .fw-bold {
-    font-weight: bold; /* Make brand name bold */
-  }
-  
-  /* Additional styles can be added as needed */
-  
+/* AppNavbar.css */
+
+/* Navbar styles */
+.navbar {
+  background-color: #1a1a2e; /* Dark background for navbar */
+}
+
+.navbar .navbar-brand:hover {
+  color: #ffb300; /* Brand name hover color */
+}
+
+/* Navigation links */
+.navbar .nav-link {
+  transition: color 0.3s ease; /* Smooth transition for color changes */
+}
+
+.navbar .nav-link:hover {
+  color: #ffb300; /* Change color on hover */
+}
+
+/* Shopping cart icon styles */
+.navbar .d-flex.align-items-center {
+  color: white; /* Default color for shopping cart icon */
+}
+
+.navbar .d-flex.align-items-center:hover {
+  color: #ffb300; /* Change color on hover for shopping cart */
+}
+
+

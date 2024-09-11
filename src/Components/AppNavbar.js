@@ -5,7 +5,7 @@ import './AppNavbar.css'; // Import your custom CSS file
 
 const AppNavbar = () => {
   return (
-    <Navbar bg="dark" variant="dark" expand="lg">
+    <Navbar className="py-4 " variant="dark" expand="lg">
       <Container>
         <Navbar.Brand href="#home" className="fw-bold">
           GR Trendz
@@ -19,8 +19,8 @@ const AppNavbar = () => {
             <Nav.Link className="mx-4 nav-link" href="#contact">Contact Us</Nav.Link>
           </Nav>
           <Nav className="ms-auto">
-            <Nav.Link href="#cart" className="d-flex align-items-center">
-              <FaShoppingCart size={30} color="white" />
+            <Nav.Link href="#cart" className="d-flex align-items-center cart">
+              <FaShoppingCart size={30} />
               <Badge pill bg="danger" className="ms-2">0</Badge>
             </Nav.Link>
           </Nav>

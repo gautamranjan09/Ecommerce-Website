@@ -1,0 +1,16 @@
+
+  
+  .card {
+    transition: transform 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+  }
+  
+  .card-img-top {
+    height: 200px; /* Set a fixed height */
+    width: 100%;   /* Ensure image takes up full width of the card */
+    object-fit: contain; /* Contain the image within the card without stretching */
+  }
+  
