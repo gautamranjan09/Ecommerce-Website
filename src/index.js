@@ -6,13 +6,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../node_modules/react-bootstrap/dist/react-bootstrap";
 import  "../node_modules/bootstrap/dist/css/bootstrap.css";
+import CartProvider from './Components/store/CartProvider';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+  <CartProvider>
     <App />
-  </React.StrictMode>
+  </CartProvider>
 );
 
 

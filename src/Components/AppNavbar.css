@@ -27,4 +27,12 @@
   color: #ffb300; /* Change color on hover for shopping cart */
 }
 
-
+.navbar .badge {
+  background-color: #dc3545; /* Badge color */
+  border-radius: 50%;
+  padding: 0.25em 0.5em;
+  font-size: 0.75rem;
+  position: relative;
+  top: -10px; /* Position it over the cart icon */
+  left: -10px;
+}
