@@ -3,6 +3,7 @@ import { Container, Nav, Navbar, Badge } from "react-bootstrap";
 import { FaShoppingCart } from "react-icons/fa";
 import './AppNavbar.css'; // Import your custom CSS file
 import CartContext from "./store/CartContext";
+import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 
 const AppNavbar = ({onCartClick}) => {
   const {items}=useContext(CartContext);
@@ -19,10 +20,10 @@ const AppNavbar = ({onCartClick}) => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mx-auto d-flex justify-content-center">
-            <Nav.Link className="mx-4 nav-link" href="#home">Home</Nav.Link>
-            <Nav.Link className="mx-4 nav-link" href="#store">Store</Nav.Link>
-            <Nav.Link className="mx-4 nav-link" href="#about">About</Nav.Link>
-            <Nav.Link className="mx-4 nav-link" href="#contact">Contact Us</Nav.Link>
+            <Nav.Link as={NavLink} className="mx-4 nav-link" to="/home" activeStyle={{ textDecoration: 'underline', color: '#ffb300' }}  >Home</Nav.Link>
+            <Nav.Link as={NavLink} className="mx-4 nav-link" to="/store" activeStyle={{ textDecoration: 'underline', color: '#ffb300' }} >Store</Nav.Link>
+            <Nav.Link as={NavLink} className="mx-4 nav-link" to="/about" activeStyle={{ textDecoration: 'underline', color: '#ffb300' }} >About</Nav.Link>
+            <Nav.Link as={NavLink} className="mx-4 nav-link" to="/contact" activeStyle={{ textDecoration: 'underline', color: '#ffb300' }} >Contact Us</Nav.Link>
           </Nav>
           <Nav className="ms-auto">
             <Nav.Link href="#cart" className="d-flex align-items-center cart"  onClick={onCartClick}>

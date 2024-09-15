@@ -1,8 +1,3 @@
-import React, { useContext } from "react";
-import { Container, Row, Col, Card, Button } from "react-bootstrap";
-import "./Store.css"; // Custom CSS for additional styling
-import CartContext from "./store/CartContext";
-
 // Dummy data for products
 const products = [
     {
@@ -70,35 +65,5 @@ const products = [
       description: 'Huawei’s premium phone offering a great design, powerful hardware, and a versatile camera setup.',
     }
   ];
-  
 
-const Store = ({onShowToast}) => {
-    const { addItem }=useContext(CartContext);
-    
-    const addToCartHandler = (product)=>{
-        addItem(product);
-        onShowToast(`${product.name} has been added to the cart!`)
-    }
-  return (
-    <Container className="my-5">
-      <h2 className="text-center mb-4">Our Store</h2>
-      <Row>
-        {products.map((product) => (
-          <Col key={product.id} sm={12} md={6} lg={4} className="mb-4">
-            <Card className="h-100">
-              <Card.Img variant="top" src={product.image} />
-              <Card.Body>
-                <Card.Title>{product.name}</Card.Title>
-                <Card.Text>{product.description}</Card.Text>
-                <h5>{product.priceText}</h5>
-                <Button variant="primary" onClick={()=> addToCartHandler(product)}>Add to Cart</Button>
-              </Card.Body>
-            </Card>
-          </Col>
-        ))}
-      </Row>
-    </Container>
-  );
-};
-
-export default Store;
+  export default products;
