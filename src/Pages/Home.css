@@ -1,0 +1,56 @@
+.home-container {
+    background-color: #f8f9fa;
+    padding: 20px;
+  }
+  
+  .hero-section {
+    position: relative;
+    height: 60vh;
+    overflow: hidden;
+  }
+  
+  .carousel-item img {
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .carousel-caption {
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    padding: 20px;
+    border-radius: 5px;
+  }
+  
+  .countdown-section {
+    background-color: #d1c5c5;
+    padding: 20px;
+    border-radius: 5px;
+  }
+  
+  .event-row {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .event-row h4 {
+    margin-bottom: 0.5rem;
+  }
+  
+  .event-row p {
+    margin: 0.5rem 0;
+  }
+  
+  .testimonials-section {
+    background-color: #e9ecef;
+    padding: 20px;
+    border-radius: 5px;
+  }
+  
+  .newsletter-section {
+    background-color: #343a40;
+    color: white;
+    padding: 20px;
+    border-radius: 5px;
+  }
+  
