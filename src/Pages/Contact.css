@@ -1,0 +1,59 @@
+.contact-us-container {
+    background-color: #f9f9f9; /* Light background for contrast */
+    padding: 50px 0; /* Padding around the container */
+  }
+  
+  h2 {
+    font-size: 2.5rem; /* Larger font size for headings */
+    color: #333; /* Darker color for better visibility */
+  }
+  
+  .contact-form {
+    background-color: #fff; /* White background for form */
+    padding: 30px; /* Padding inside the form */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  }
+  
+  .form-control-custom {
+    border: 1px solid #007bff; /* Bootstrap primary color border */
+    border-radius: 5px; /* Rounded corners for inputs */
+    transition: border-color 0.3s; /* Smooth transition on focus */
+  }
+  
+  .form-control-custom:focus {
+    border-color: #0056b3; /* Darker blue on focus */
+    box-shadow: 0 0 5px rgba(0, 91, 189, 0.5); /* Focus shadow */
+  }
+  
+  .submit-button {
+    background-color: #007bff; /* Bootstrap primary color */
+    border: none; /* No border */
+    width: 100%; /* Full width button */
+    padding: 10px; /* Padding inside button */
+    font-size: 1.2rem; /* Larger font size for button */
+    border-radius: 5px; /* Rounded corners */
+    margin-top: 10px;
+    transition: background-color 0.3s; /* Smooth transition on hover */
+  }
+  
+  .submit-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }
+  
+  .phone {
+    font-weight: bold; /* Bold phone number */
+    color: #555; /* Darker color for better visibility */
+  }
+  
+  /* Social media links styling */
+  p a {
+    color: #007bff; /* Bootstrap primary color */
+    text-decoration: none; /* No underline */
+    margin: 0 5px; /* Space between links */
+  }
+  
+  p a:hover {
+    text-decoration: underline; /* Underline on hover */
+  }
+  
