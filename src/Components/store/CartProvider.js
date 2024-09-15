@@ -32,7 +32,8 @@ const cartReducer = (state, action)=>{
         case  'REMOVE_ITEM':
             const filteredItems = state.items.filter(item => item.id !== action.id);
             const itemToRemove =  state.items.find(item => item.id === action.id);
-            const newTotalAmount = state.totalAmount - itemToRemove.price;
+          
+            const newTotalAmount = state.totalAmount - itemToRemove.quantity*itemToRemove.price;
             return {items:filteredItems,totalAmount:newTotalAmount};
         
         case 'UPDATE_ITEM_QUANTITY':

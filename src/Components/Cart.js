@@ -87,8 +87,9 @@ const Cart = ({ show, handleClose }) => {
         <Modal.Footer>
           <div className="w-100 d-flex justify-content-between align-items-center">
             <h5>Total Amount: ₹{(totalAmount - discountAmount).toFixed(2)}</h5>
-            <div>
-              <Button variant="secondary" onClick={handleClose} className="mr-2">Close</Button>
+            <div  className="d-flex justify-content-between">
+
+              <Button variant="secondary" onClick={handleClose} >Close</Button>
               <Button variant="primary" onClick={() => {
                 handleClose();
                 setShowConfirmModal(true);

@@ -60,7 +60,7 @@ div .quantity-input {
 }
 
 .cart-modal .modal-footer .btn-primary {
-  margin-left: 5px;
+  padding: 8px;
 }
 
 /* Clear Cart Confirmation Modal Styling */
