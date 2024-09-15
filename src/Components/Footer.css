@@ -4,11 +4,11 @@
     border-color: #0056b3;
   }
   
-  .social-icon {
+  .footer-social-icon {
     transition: transform 0.3s ease; /* Transition for scaling */
   }
   
-  .social-icon:hover {
+  .footer-social-icon:hover {
     color: #ffd700;
     transform: scale(1.1); /* Slightly increase the size on hover */
   }

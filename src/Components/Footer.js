@@ -26,22 +26,22 @@ const Footer = () => {
             <ul className="list-unstyled d-flex">
               <li className="me-3">
                 <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-light">
-                  <FaFacebook size={24} className="social-icon" /> {/* Facebook icon */}
+                  <FaFacebook size={24} className="footer-social-icon" /> {/* Facebook icon */}
                 </a>
               </li>
               <li className="me-3">
                 <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter" className="text-light">
-                  <FaTwitter size={24} className="social-icon" /> {/* Twitter icon */}
+                  <FaTwitter size={24} className="footer-social-icon" /> {/* Twitter icon */}
                 </a>
               </li>
               <li className="me-3">
                 <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-light">
-                  <FaInstagram size={24} className="social-icon" /> {/* Instagram icon */}
+                  <FaInstagram size={24} className="footer-social-icon" /> {/* Instagram icon */}
                 </a>
               </li>
               <li>
                 <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-light">
-                  <FaLinkedin size={24} className="social-icon" /> {/* LinkedIn icon */}
+                  <FaLinkedin size={24} className="footer-social-icon" /> {/* LinkedIn icon */}
                 </a>
               </li>
             </ul>
