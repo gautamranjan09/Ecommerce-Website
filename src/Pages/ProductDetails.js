@@ -5,7 +5,7 @@ import { Button, Carousel, Col, Container, Row } from "react-bootstrap";
 import CartContext from "../Components/store/CartContext";
 import './ProductDetails.css';
 
-const ProductDetails = () => {
+const ProductDetails = ({onShowToast} ) => {
   const { productId } = useParams(); // Get the productId from the URL
   const [zoomedImage, setZoomedImage] = useState(null); // State for zoomed image
   const { addItem } = useContext(CartContext);
@@ -15,6 +15,8 @@ const ProductDetails = () => {
 
   const handleAddToCart = () => {
     addItem(product);
+    window.history.back();
+    onShowToast(`${product.name} has been added to the cart!`);
   };
 
   if (!product) {

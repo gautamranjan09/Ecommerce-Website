@@ -25,7 +25,7 @@ const MyRoute = (props) => {
           <Store onShowToast={props.onShowToast} />
         </Route>
         <Route path="/store/:productId">
-          <ProductDetails />
+          <ProductDetails onShowToast={props.onShowToast} />
         </Route>
         <Route path="/about">
           <About />

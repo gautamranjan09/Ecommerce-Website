@@ -1,0 +1,134 @@
+/* About.css */
+
+/* General Styles */
+.about-container {
+    background-color: #f8f9fa; /* Light background for contrast */
+    padding: 2rem 0; /* Padding for top and bottom */
+  }
+  
+  /* Hero Section */
+  .hero-section {
+    position: relative; /* Position for overlaying text */
+    text-align: center; /* Center text */
+    color: white; /* Text color */
+    overflow: hidden; /* Hide any overflow */
+  }
+  
+  .hero-image {
+    width: 100%; /* Full width */
+    height: 60vh; /* Set height for the hero section */
+    object-fit: cover; /* Cover the area */
+    filter: brightness(0.7); /* Darken the image for text visibility */
+  }
+  
+  .hero-text {
+    position: absolute; /* Position text over the image */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust for centering */
+    z-index: 1; /* Bring title above the image */
+  }
+  
+  .hero-title {
+    font-size: 3rem; /* Larger font size for the title */
+    margin: 0; /* Remove default margin */
+  }
+  
+  .hero-subtitle {
+    font-size: 1.5rem; /* Subtitle size */
+    margin-top: 1rem; /* Space above subtitle */
+  }
+  
+  /* Other Styles */
+  .section-title {
+    font-size: 2.5rem; /* Section title size */
+    margin-bottom: 1.5rem; /* Space below section title */
+  }
+  
+  .core-values {
+    background-color: #e9ecef; /* Light gray background for core values */
+    padding: 2rem 0; /* Padding for top and bottom */
+    border-radius: 10px; /* Rounded corners */
+  }
+  
+  .core-icon {
+    color: #1a1a2e; /* Icon color */
+  }
+
+  .mission-section{
+    background-color: #fff; /* White background for milestones */
+    padding: 2rem; /* Padding */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    font-size: 1.04rem;
+  }
+  
+  .milestones-section {
+    background-color: #fff; /* White background for milestones */
+    padding: 2rem; /* Padding */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  }
+  
+  .story-section {
+    background-color: #e7e7de; /* Light background for story section */
+    padding: 2rem; /* Padding */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .team-section {
+    padding: 2rem; /* Padding */
+  }
+  
+  .team-card {
+    transition: transform 0.3s; /* Animation on hover */
+  }
+  
+  .team-card:hover {
+    transform: scale(1.05); /* Slightly scale on hover */
+  }
+  
+  .team-socials {
+    display: flex; /* Flexbox for icons */
+    justify-content: center; /* Center icons */
+    margin-top: 1rem; /* Space above icons */
+  }
+  
+  .social-icon {
+    margin: 0 10px; /* Margin between icons */
+    color: #1a1a2e; /* Icon color */
+    transition: color 0.3s; /* Color transition */
+  }
+  
+  .social-icon:hover {
+    color: #007bff; /* Change color on hover */
+  }
+  
+  .testimonials-section {
+    background-color: #e9ecef; /* Light gray background for testimonials */
+    padding: 2rem; /* Padding */
+    border-radius: 10px; /* Rounded corners */
+  }
+  
+  .testimonial {
+    font-size: 1.25rem; /* Testimonial font size */
+    font-style: italic; /* Italicize testimonial text */
+  }
+  
+  .testimonial-author {
+    font-weight: bold; /* Bold author name */
+    margin-top: 1rem; /* Space above author name */
+  }
+  
+
+
+  .story-image{
+    width: 100%;
+    object-fit:contain;
+  }
+  
+  .story-text{
+    
+    font-size: 1.04rem;
+  }
