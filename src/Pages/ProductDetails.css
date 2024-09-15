@@ -1,0 +1,145 @@
+/* General Styles */
+body {
+    background-color: #f8f9fa; /* Light background for the overall page */
+}
+
+.detail {
+    padding: 20px;
+    background-color: #ffffff; /* White background for the product details container */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Carousel Image Styles */
+.carousel img {
+    height: 400px;
+    object-fit: cover; /* Ensure the image covers the entire container */
+    transition: transform 0.3s ease; /* Smooth transition for zoom effect */
+}
+
+.carousel img:hover {
+    transform: scale(1.2); /* Zoom effect on hover */
+}
+
+/* Zoomed Image Modal Styles */
+.zoomed-image-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.85); /* Darker background for better focus */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.zoomed-image {
+    max-width: 95%;
+    max-height: 95%;
+    border: 2px solid #ffffff; /* White border around the image */
+    border-radius: 10px;
+}
+
+/* Product Name */
+.product-name {
+    font-size: 2.5rem; /* Increased font size */
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #333; /* Darker color for contrast */
+}
+
+/* Product Tags */
+.product-tags {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+.product-tag {
+    background-color: #007bff; /* Bootstrap primary color */
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-right: 5px;
+    font-size: 0.9rem;
+}
+
+/* Product Description */
+.product-description {
+    font-size: 1.2rem; /* Slightly larger font for better readability */
+    margin-bottom: 1rem;
+    color: #666; /* Darker gray for a softer contrast */
+}
+
+/* Product Price */
+.product-price {
+    font-size: 1.8rem; /* Increased font size for visibility */
+    font-weight: bold;
+    margin: 1rem 0;
+    color: #28a745; /* Bootstrap success color for pricing */
+}
+
+/* Button Styles */
+/* ProductDetails.css */
+.button, 
+.btn {
+    padding: 10px 20px; /* Added padding for a more substantial button */
+    font-size: 1.2rem; /* Increased font size */
+    border-radius: 5px; /* Slightly rounded corners */
+    transition: background-color 0.3s, transform 0.3s; /* Smooth transitions */
+    margin-right: 10px; /* Spacing between buttons */
+}
+
+.button:hover, 
+.btn:hover {
+    background-color: #0056b3; /* Change to your desired hover color */
+    transform: scale(1.05); /* Slightly scale the button */
+}
+
+
+/* Review Section */
+.product-reviews {
+    margin-top: 2rem;
+    padding: 10px;
+    background: #f1f1f1; /* Light gray background for review section */
+    border-radius: 10px; /* Rounded corners */
+}
+
+.review {
+    background: #ffffff; /* White background for individual reviews */
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+    margin-bottom: 1rem; /* Spacing between reviews */
+}
+
+.review p {
+    margin: 0; /* Remove default margins */
+}
+
+/* Review User Highlight */
+.review strong {
+    color: #007bff; /* Bootstrap primary color for user names */
+}
+
+/* Stars for Ratings */
+.rating {
+    color: #FFD700; /* Gold color for stars */
+}
+
+.rating span {
+    margin-right: 3px; /* Spacing between stars */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .product-name {
+        font-size: 2rem; /* Responsive font size */
+    }
+
+    .product-price {
+        font-size: 1.5rem; /* Responsive font size */
+    }
+}

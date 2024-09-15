@@ -23,7 +23,7 @@ const Store = ({onShowToast}) => {
           <Col key={product.id} sm={12} md={6} lg={4} className="mb-4">
             <Link to={`/store/${product.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
               <Card className="h-100">
-                <Card.Img variant="top" src={product.image} />
+                <Card.Img variant="top" src={product.image[0]} />
                 <Card.Body>
                   <Card.Title>{product.name}</Card.Title>
                   <Card.Text>{product.description}</Card.Text>
