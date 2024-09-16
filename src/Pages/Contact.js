@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import './Contact.css'; // Create a separate CSS file for styling
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
@@ -9,6 +10,7 @@ const ContactUs = () => {
     phone: "",
     message: "",
   });
+  const history = useHistory();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -21,6 +23,7 @@ const ContactUs = () => {
     console.log("Form submitted:", formData);
     // Reset form
     setFormData({ name: "", email: "", phone: "", message: "" });
+    history.push("/thank-you");
   };
 
   return (

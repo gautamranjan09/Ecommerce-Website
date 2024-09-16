@@ -10,6 +10,7 @@ import About from "../Pages/About";
 import Contact from "../Pages/Contact";
 import ProductDetails from "../Pages/ProductDetails";
 import NotFound from "../Pages/NotFound";
+import ThankYou from "../Pages/ThankYou";
 
 const MyRoute = (props) => {
   return (
@@ -33,8 +34,11 @@ const MyRoute = (props) => {
         <Route path="/contact">
           <Contact />
         </Route>
-        <Route  path="*">
-            <NotFound/>
+        <Route path="/thank-you">
+          <ThankYou />
+        </Route>
+        <Route path="*">
+          <NotFound />
         </Route>
       </Switch>
     </>

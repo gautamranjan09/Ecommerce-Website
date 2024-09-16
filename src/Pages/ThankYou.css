@@ -1,0 +1,37 @@
+.thank-you-container {
+    background-color: #f9f9f9; /* Light background for contrast */
+    padding: 20px;
+    border-radius: 10px; /* Rounded corners */
+  }
+  
+  .thank-you-title {
+    font-size: 2.5rem; /* Larger font size for the title */
+    color: #007bff; /* Bootstrap primary color */
+    margin-bottom: 20px; /* Space below the title */
+  }
+  
+  .thank-you-message {
+    font-size: 1.25rem; /* Slightly larger font for the message */
+    color: #333; /* Dark text for readability */
+    margin-bottom: 30px; /* Space below the message */
+  }
+  
+  .go-home-btn {
+    padding: 10px 20px; /* Increased padding for the button */
+    font-size: 1.1rem; /* Slightly larger font size */
+  }
+  
+  .contact-info {
+    border-top: 1px solid #e0e0e0; /* Divider line above contact info */
+    padding-top: 20px; /* Space above contact info */
+  }
+  
+  .contact-info a {
+    color: #007bff; /* Link color */
+    text-decoration: none; /* Remove underline */
+  }
+  
+  .contact-info a:hover {
+    text-decoration: underline; /* Underline on hover */
+  }
+  

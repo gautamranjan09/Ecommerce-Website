@@ -3,7 +3,7 @@ import { Container, Nav, Navbar, Badge } from "react-bootstrap";
 import { FaShoppingCart } from "react-icons/fa";
 import './AppNavbar.css'; // Import your custom CSS file
 import CartContext from "./store/CartContext";
-import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
+import { NavLink, Link } from "react-router-dom/cjs/react-router-dom.min";
 
 const AppNavbar = ({onCartClick}) => {
   const {items}=useContext(CartContext);
@@ -14,7 +14,7 @@ const AppNavbar = ({onCartClick}) => {
   return (
     <Navbar className="py-4 " variant="dark" expand="lg">
       <Container>
-        <Navbar.Brand href="#home" className="fw-bold">
+        <Navbar.Brand as={ Link } to="/home" className="fw-bold">
           GR Trendz
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
