@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import './Contact.css'; // Create a separate CSS file for styling
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { Prompt, useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
@@ -10,6 +10,7 @@ const ContactUs = () => {
     phone: "",
     message: "",
   });
+  const [isEntering, setIsEntering] = useState(false);
   const history = useHistory();
 
   const handleChange = (e) => {
@@ -28,10 +29,12 @@ const ContactUs = () => {
 
   return (
     <Container fluid className="contact-us-container">
-      <h2 className="text-center my-5">Contact Us</h2>
+      <h2 className="text-center my-5">Get in touch!</h2>
       <Row className="justify-content-center">
         <Col md={6}>
-          <Form onSubmit={handleSubmit} className="contact-form">
+        <Prompt  when={isEntering} message="Are you sure you want to leave? All your entered data will be lost!" />
+
+          <Form onSubmit={handleSubmit} onFocus={()=>{setIsEntering(true)}} className="contact-form">
             <Form.Group controlId="formName">
               <Form.Label>Name</Form.Label>
               <Form.Control
@@ -85,7 +88,7 @@ const ContactUs = () => {
               />
             </Form.Group>
 
-            <Button variant="primary" type="submit" className="submit-button">
+            <Button variant="primary" type="submit" onClick={()=> setIsEntering(false)} className="submit-button">
               Send Message
             </Button>
           </Form>
