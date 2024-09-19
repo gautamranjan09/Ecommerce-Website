@@ -30,6 +30,9 @@
   margin-bottom: 10px;
   transition: background-color 0.3s ease;
 }
+.cart-item-image{
+  width: 50px;
+}
 
 .cart-item:hover {
   background-color: #f1f3f5;

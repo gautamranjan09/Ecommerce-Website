@@ -21,7 +21,7 @@ const CardDetails = ({ onConfirm, onBack }) => {
   };
 
   return (
-    <Form onSubmit={handleSubmit} className="mt-4 payment-form">
+    <Form onSubmit={handleSubmit} className="mt-4 payment-form" style={{ width: '40rem', margin: 'auto' }}>
       <Form.Group controlId="formCardNumber">
         <Form.Label>Card Number</Form.Label>
         <Form.Control

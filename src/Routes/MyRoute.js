@@ -12,6 +12,7 @@ import ProductDetails from "../Pages/ProductDetails";
 import NotFound from "../Pages/NotFound";
 import ThankYou from "../Pages/ThankYou";
 import Payment from "../Pages/Payment";
+import PaymentEvent from "../Pages/PaymentEvent";
 
 const MyRoute = (props) => {
   return (
@@ -40,6 +41,9 @@ const MyRoute = (props) => {
         </Route>
         <Route path="/payment">
           <Payment/>
+        </Route>
+        <Route path="/paymentevent">
+          <PaymentEvent/>
         </Route>
         <Route path="*">
           <NotFound />

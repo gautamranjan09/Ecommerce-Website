@@ -12,7 +12,7 @@ const ThankYou = () => {
           <p className="thank-you-message">
             Your message has been successfully submitted. We will get back to you shortly.
           </p>
-          <Link to="/">
+          <Link to="/home">
             <Button variant="primary" className="go-home-btn">Go Back to Home</Button>
           </Link>
         </Col>

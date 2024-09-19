@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Button, Form, ListGroup, Modal } from 'react-bootstrap';
+import { Button, Form, Image, ListGroup, Modal } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom'; // Import useHistory
 import CartContext from './store/CartContext';
 import "./Cart.css";
@@ -47,8 +47,11 @@ const Cart = ({ show, handleClose }) => {
               <ListGroup className='cart-modal-body'>
                 {items.map(item => (
                   <ListGroup.Item key={item.id} className="d-flex justify-content-between align-items-center cart-item">
-                    <div className="item-info">
-                      <span className="cart-item-name">{item.name}</span> - ₹{item.price}
+                    <div className="item-info d-flex align-items-center">
+                      <Image src={item.image[0]} rounded className="cart-item-image" /> {/* Product Image */}
+                      <div className="ml-3">
+                        <span className="cart-item-name">{item.name}</span> - ₹{item.price}
+                      </div>
                     </div>
                     <div className="d-flex align-items-center justify-content-between item-actions">
                       <Form.Control

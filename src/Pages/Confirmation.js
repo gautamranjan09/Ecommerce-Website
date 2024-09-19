@@ -1,12 +1,12 @@
 import React from 'react';
-import { Button, Card } from 'react-bootstrap';
+import { Button, Card, Image } from 'react-bootstrap';
 import './Payment.css'; // Import the CSS file
 
 const Confirmation = ({ onConfirm, orderDetails }) => {
   return (
     <div className="text-center mt-4">
       <h4 className="confirmation-title">Confirm Payment</h4>
-      <Card className="mt-3 confirmation-card" style={{ width: '20rem', margin: 'auto' }}>
+      <Card className="mt-3 confirmation-card" style={{ width: '40rem', margin: 'auto' }}>
         <Card.Body>
           <Card.Title className="card-title">Order Summary</Card.Title>
           <Card.Text className="order-items">
@@ -14,6 +14,7 @@ const Confirmation = ({ onConfirm, orderDetails }) => {
             <div className="items-list">
               {orderDetails.items.map(item => (
                 <div key={item.id} className="item">
+                    <Image src={item.image[0]} rounded className="cart-item-image" />
                   {item.name} - <span className="item-price">₹{item.price}</span> (x{item.quantity})
                 </div>
               ))}

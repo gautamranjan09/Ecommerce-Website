@@ -102,11 +102,13 @@
   }
   
   .items-list {
-    max-height: 150px; /* Limit height of items list */
+    max-height: 250px; /* Limit height of items list */
     overflow-y: auto; /* Scroll if too many items */
   }
   
   .item {
+    display: flex;
+    justify-content: space-between;
     padding: 5px 0; /* Space between items */
     border-bottom: 1px solid #dee2e6; /* Light border between items */
   }

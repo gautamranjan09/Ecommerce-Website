@@ -12,7 +12,7 @@ const NotFound = () => {
           <p className="not-found-message">
             Oops! The page you are looking for does not exist.
           </p>
-          <Link to="/">
+          <Link to="/home">
             <Button variant="primary" className="go-home-btn">Go Back to Home</Button>
           </Link>
         </Col>

@@ -1,0 +1,127 @@
+.paymentevent-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+  padding: 20px;
+}
+.ticket-booked-page {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+  animation: fadeIn 0.5s ease;
+}
+
+.paymentevent-form,
+.paymentevent-confirmation-page {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.paymentevent-heading {
+  font-size: 26px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.paymentevent-text {
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.paymentevent-input-field {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+.paymentevent-input-field:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Buttons */
+.paymentevent-confirm-button,
+.paymentevent-download-button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 12px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px;
+  transition: background-color 0.3s;
+}
+
+.paymentevent-confirm-button:hover,
+.paymentevent-download-button:hover {
+  background-color: #0056b3;
+}
+
+/* Download Button Specific */
+.paymentevent-download-button {
+  background-color: #28a745;
+}
+
+.paymentevent-download-button:hover {
+  background-color: #218838;
+}
+
+/* Ticket Details Section */
+.ticket-details {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.ticket-details p {
+  font-size: 16px;
+  color: #555;
+  margin: 5px 0;
+}
+
+.ticket-details strong {
+  color: #000;
+}
+
+.paymentevent-confirmation-page,
+.ticket-booked-page {
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Add some responsiveness */
+@media (max-width: 768px) {
+  .paymentevent-form,
+  .paymentevent-confirmation-page,
+  .ticket-booked-page {
+    width: 90%;
+  }
+}
