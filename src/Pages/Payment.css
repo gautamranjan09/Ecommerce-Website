@@ -1,0 +1,135 @@
+.payment-container {
+    background-color: #f8f9fa; /* Light background for the container */
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 600px; /* Limit width for better focus */
+    margin: auto; /* Center the container */
+  }
+  
+  h1 {
+    font-size: 2rem; /* Larger title */
+    color: #343a40; /* Darker text color */
+    margin-bottom: 20px;
+  }
+  
+  .cart-items-list {
+    border-radius: 10px; /* Rounded corners for list */
+    overflow: hidden; /* Prevent overflow */
+  }
+  
+  .cart-item {
+    background-color: #ffffff; /* White background for items */
+    border-bottom: 1px solid #e9ecef; /* Subtle divider */
+  }
+  
+  .cart-item:last-child {
+    border-bottom: none; /* Remove border for last item */
+  }
+  
+  .total-amount {
+    font-weight: bold; /* Bold for emphasis */
+    color: #007bff; /* Bootstrap primary color */
+  }
+  
+  .payment-form {
+    background-color: #ffffff; /* White background for form */
+    padding: 20px; /* Padding for form elements */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+  }
+  
+  .btn {
+    font-weight: bold; /* Bold button text */
+    border-radius: 5px; /* Slightly rounded buttons */
+  }
+  
+  .btn-success {
+    background-color: #28a745; /* Green color for success */
+    border-color: #28a745; /* Match border color */
+  }
+  
+  .btn-secondary {
+    background-color: #6c757d; /* Gray for back button */
+    border-color: #6c757d; /* Match border color */
+  }
+  
+  h4 {
+    margin-bottom: 20px; /* Space below confirmation heading */
+  }
+  .order-placed {
+    background-color: #e7f3fe; /* Light blue background for emphasis */
+    border-radius: 10px;
+    padding: 30px; /* Increased padding for more space */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* More pronounced shadow */
+    min-height: 400px; /* Set minimum height */
+  }
+  
+  
+  .order-placed {
+    text-align: center; /* Center the text */
+  }
+  
+  .order-placed h2 {
+    color: #28a745; /* Green color for success message */
+  }
+  
+  .order-placed p {
+    font-size: 1.2rem; /* Larger text for order message */
+    color: #6c757d; /* Subtle gray text */
+  }
+  .confirmation-title {
+    color: #007bff; /* Blue color for the title */
+    font-weight: bold; /* Bold title for emphasis */
+    margin-bottom: 20px; /* Space below the title */
+  }
+  
+  .confirmation-card {
+    border: 1px solid #007bff; /* Blue border for the card */
+    border-radius: 15px; /* Rounded corners for the card */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Soft shadow */
+    background-color: #f8f9fa; /* Light background color for the card */
+  }
+  
+  .card-title {
+    color: #343a40; /* Darker text for card title */
+    font-size: 1.5rem; /* Larger font size for title */
+    margin-bottom: 15px; /* Space below the title */
+  }
+  
+  .order-items {
+    color: #495057; /* Darker text color for order items */
+  }
+  
+  .items-list {
+    max-height: 150px; /* Limit height of items list */
+    overflow-y: auto; /* Scroll if too many items */
+  }
+  
+  .item {
+    padding: 5px 0; /* Space between items */
+    border-bottom: 1px solid #dee2e6; /* Light border between items */
+  }
+  
+  .item-price {
+    font-weight: bold; /* Bold price text */
+  }
+  
+  .total-amount {
+    font-size: 1.25rem; /* Larger font for total amount */
+    font-weight: bold; /* Bold total amount */
+    margin-top: 10px; /* Space above total amount */
+  }
+  
+  .confirm-button {
+    width: 100%; /* Full width button */
+    padding: 10px; /* Button padding */
+    font-size: 1.1rem; /* Larger font for button */
+    margin-top: 15px; /* Space above button */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+  }
+  
+  .confirm-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }
+  

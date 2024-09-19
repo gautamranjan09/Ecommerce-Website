@@ -1,9 +1,24 @@
 /* Cart Modal Styling */
+
 .cart-modal .modal-content {
   background-color: #f8f9fa;
   border-radius: 20px;
   padding: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.modal-content-body{
+  background-color: #6665611e;
+  border-radius: 20px;
+  padding: 15px;
+  box-shadow: 0 4px 8px rgba(128, 139, 27, 0.1);
+}
+.cart-modal-body {
+  max-height: 250px; /* Set a max height to allow scrolling */
+  overflow-y: auto; /* Enable vertical scrolling */
+}
+
+.cart-modal .modal-header{
+  color: #1a1a2e;
 }
 
 /* Cart Item Styling */
