@@ -1,5 +1,3 @@
-/* AppNavbar.css */
-
 /* Navbar styles */
 .navbar {
   background-color: #1a1a2e; /* Dark background for navbar */
@@ -18,7 +16,6 @@
   color: #ffb300; /* Change color on hover */
 }
 
-
 /* Shopping cart icon styles */
 .navbar .d-flex.align-items-center {
   color: white; /* Default color for shopping cart icon */
@@ -36,4 +33,29 @@
   position: relative;
   top: -10px; /* Position it over the cart icon */
   left: -10px;
+}
+
+/* Welcome message */
+.welcome-message {
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+/* Logout/Login button styles */
+.navbar .btn-outline-light {
+  /* color: #ffb300;
+  border-color: #ffb300; */
+  transition: transform 0.2s ease, background-color 0.3s ease; /* Transition for click animation */
+}
+
+.navbar .btn-outline-light:hover {
+  background-color: #ffb300;
+  color: #1a1a2e;
+}
+
+/* Click animation for buttons */
+.navbar .btn-outline-light:active {
+  transform: scale(0.95); /* Button shrinks slightly when clicked */
+  background-color: #e6a700; /* Slightly darker yellow for click effect */
 }

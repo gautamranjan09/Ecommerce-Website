@@ -13,13 +13,17 @@ import NotFound from "../Pages/NotFound";
 import ThankYou from "../Pages/ThankYou";
 import Payment from "../Pages/Payment";
 import PaymentEvent from "../Pages/PaymentEvent";
+import AuthenticationForm from "../Pages/AuthenticationForm";
 
 const MyRoute = (props) => {
   return (
     <>
       <Switch>
         <Route path="/" exact>
-          <Redirect to="/home" />
+          <Redirect to="/Auth" />
+        </Route>
+        <Route path="/Auth">
+          <AuthenticationForm/>
         </Route>
         <Route path="/home">
           <Home />

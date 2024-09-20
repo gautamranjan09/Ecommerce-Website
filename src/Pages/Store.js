@@ -32,8 +32,8 @@ const Store = ({ onShowToast }) => {
     };
 
     return (
-        <Container className="my-5">
-            <h2 className="text-center mb-4">Our Store</h2>
+        <Container className="pb-5"  style={{backgroundColor:"#f9f9f9"}} fluid>
+            <h2 className="text-center mb-4 pt-5">Our Store</h2>
             <div className="mb-4 text-center">
                 <Dropdown>
                     <Dropdown.Toggle variant="success" id="dropdown-basic">
@@ -50,7 +50,7 @@ const Store = ({ onShowToast }) => {
                     </Dropdown.Menu>
                 </Dropdown>
             </div>
-            <Row>
+            <Row className="mx-5">
                 {sortedProducts().map((product) => (
                     <Col key={product.id} sm={12} md={6} lg={4} className="mb-4">
                         <Link to={`/store/${product.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>

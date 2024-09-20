@@ -1,0 +1,88 @@
+/* Container Styles */
+.AuthenticationForm-container {
+  max-width: 450px; /* Reducing the width */
+  background-color: #1a1a2ecc; /* Dark background to match the navbar */
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+  color: #fff; /* Text color */
+}
+
+/* Title Styling */
+.AuthenticationForm-title {
+  text-align: center;
+  color: #ffb300; /* Gold color for title */
+  margin-bottom: 1.5rem;
+}
+
+/* Tabs Styling */
+.AuthenticationForm-tabs .nav-link {
+  color: #ffb300; /* Gold color for the tab text */
+}
+
+.AuthenticationForm-tabs .nav-link.active {
+  background-color: #ffb300; /* Active tab background */
+  color: #1a1a2e; /* Active tab text color */
+}
+
+/* Form Label Styles */
+.AuthenticationForm-tab-content .form-label {
+  color: #ffb300; /* Gold color for labels */
+}
+
+/* Form Input Styling */
+.AuthenticationForm-tab-content .form-control {
+  background-color: #2e2e44; /* Darker input field background */
+  border: none;
+  color: white;
+}
+
+.AuthenticationForm-tab-content .form-control:focus {
+  background-color: #2e2e44;
+  border-color: #ffb300;
+  box-shadow: 0 0 0 0.2rem rgba(255, 179, 0, 0.25);
+}
+
+/* Button Styles */
+.AuthenticationForm-button {
+  background-color: #ffb300;
+  border: none;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.AuthenticationForm-button:hover {
+  background-color: #e6a700; /* Slightly darker gold */
+}
+
+/* Forgot Password and Continue as Guest Buttons */
+.AuthenticationForm-forgot-password {
+  color: #ffb300;
+  text-align: center;
+  display: block;
+  width: 100%;
+}
+
+.AuthenticationForm-forgot-password:hover {
+  color: #e6a700;
+}
+
+.AuthenticationForm-continue-guest {
+  background-color: transparent;
+  color: #ffb300;
+  border: 1px solid #ffb300;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.AuthenticationForm-continue-guest:hover {
+  background-color: #ffb300;
+  color: #1a1a2e;
+}
+
+/* Add some space between form fields */
+.form-group {
+  margin-bottom: 1.5rem;
+}

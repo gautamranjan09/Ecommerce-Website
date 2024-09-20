@@ -129,7 +129,7 @@ const Home = () => {
         <h2 className="text-center">Featured Events</h2>
         {featuredEvents.map((event, index) => (
           <Row className="my-3" key={index}>
-            <Col md={12} className="text-center">
+            <Col md={12} className="text-center" >
               <h4>{event.title}</h4>
               <p>
                 {event.date} - {event.location}

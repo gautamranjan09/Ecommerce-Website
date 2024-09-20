@@ -1,185 +1,144 @@
-/* Cart Modal Styling */
-
+/* Modal Styles */
 .cart-modal .modal-content {
-  background-color: #f8f9fa;
-  border-radius: 20px;
-  padding: 15px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #FFFAF0; /* Light background for contrast */
+  color: #1a1a2e; /* Dark text for readability */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
-.modal-content-body{
-  background-color: #6665611e;
-  border-radius: 20px;
-  padding: 15px;
-  box-shadow: 0 4px 8px rgba(128, 139, 27, 0.1);
+
+.cart-modal .modal-header,
+.cart-modal .modal-footer {
+  border: none; /* Remove borders */
 }
+
+.cart-modal .modal-title {
+  color: #ffb300; /* Gold color for the modal title */
+}
+
+/* Body Styling */
 .cart-modal-body {
-  max-height: 250px; /* Set a max height to allow scrolling */
-  overflow-y: auto; /* Enable vertical scrolling */
+  max-height: 300px; /* Set a maximum height */
+  overflow-y: auto;  /* Enable vertical scrolling */
+  padding: 20px; /* Add padding for better spacing */
 }
 
-.cart-modal .modal-header{
-  color: #1a1a2e;
-}
-
-/* Cart Item Styling */
+/* List Group Item Styles */
 .cart-item {
-  background-color: #fff;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  padding: 12px;
+  background-color: #eaeaea; /* Light gray background for items */
+  border: 1px solid #cccccc; /* Light border for contrast */
   margin-bottom: 10px;
-  transition: background-color 0.3s ease;
-}
-.cart-item-image{
-  width: 50px;
+  padding: 10px;
+  border-radius: 8px;
+  transition: background-color 0.3s; /* Transition effect */
 }
 
 .cart-item:hover {
-  background-color: #f1f3f5;
+  background-color: #F5F5DC; /* Darker gray on hover */
 }
 
-.cart-item-name {
-  font-weight: bold;
-  color: #1a1a2e;
-}
-.discount .form-control {
-  width: 75%;
-  border-radius: 5px;
-  border: 1px solid #0d5dad;
-}
-
-.text-success {
-  margin-top: 4px;
-  font-size: 0.9rem;
-}
-.cart-item .form-control {
-  border: 1px solid #0d5dad;
-  border-radius: 5px;
-}
-
-div .quantity-input {
-  width: 60px;
+.cart-item-image {
+  width: 50px; /* Product image size */
+  height: 50px;
   margin-right: 10px;
 }
 
-.cart-item .btn-danger {
-  background-color: #dc3545;
+.cart-item .cart-item-name {
+  color: #ffb300; /* Gold text for item name */
+  font-weight: bold;
+}
+
+/* Quantity Input Styles */
+.item-actions .quantity-input {
+  width: 60px;
+  background-color: #75757ae3; /* Dark background */
+  color: white;
   border: none;
+  margin-right: 10px;
 }
 
-.cart-item .btn-danger:hover {
-  background-color: #c82333;
+.item-actions .quantity-input:focus {
+  border-color: #ffb300; /* Gold focus border */
+  box-shadow: 0 0 0 0.2rem rgba(255, 179, 0, 0.25);
 }
 
-/* Modal Footer Styling */
-.cart-modal .modal-footer {
-  background-color: #f1f3f5;
-  border-top: none;
-}
-
-.cart-modal .modal-footer .btn-primary {
-  padding: 8px;
-}
-
-/* Clear Cart Confirmation Modal Styling */
-.clear-cart-modal .modal-content {
-  background-color: #f8f9fa;
-  border-radius: 15px;
-  padding: 20px;
+/* Button Styles */
+button.btn-danger,
+button.btn-primary,
+button.btn-success {
   border: none;
+  transition: all 0.3s ease;
 }
 
+button.btn-danger {
+  background-color: #dc3545; /* Red color */
+}
+
+button.btn-danger:hover {
+  background-color: #b02a37; /* Darker red */
+}
+
+button.btn-primary {
+  background-color: #ffb300; /* Gold color */
+  border-radius: 5px; /* Rounded corners */
+}
+
+button.btn-primary:hover {
+  background-color: #e6a700; /* Darker gold */
+}
+
+button.btn-success {
+  background-color: #28a745; /* Green color */
+}
+
+button.btn-success:hover {
+  background-color: #218838; /* Darker green */
+}
+
+/* Discount Form Styles */
+.discount {
+  margin-top: 1rem;
+}
+
+.discount .form-control {
+  background-color: #f0f0f0; /* Light background */
+  color: #1a1a2e; /* Dark text */
+  border: 1px solid #cccccc; /* Light border */
+}
+
+.discount .form-control::placeholder {
+  color: #757575; /* Placeholder color */
+}
+
+.discount .form-control:focus {
+  border-color: #ffb300; /* Gold focus border */
+  box-shadow: 0 0 0 0.2rem rgba(255, 179, 0, 0.25);
+}
+
+/* Discount Applied Text */
+.text-success {
+  color: #28a745; /* Green color for success text */
+}
+
+/* Total Amount Styling */
 .modal-footer h5 {
-    font-size: 1.25rem;
-    font-weight: bold;
-    color: #1a1a2e;
+  color: #ffb300; /* Gold text for total amount */
+  font-weight: bold; /* Bold text for emphasis */
+}
+
+/* Clear Cart Confirmation Modal */
+.clear-cart-modal .modal-content {
+  background-color: #f8f9fa; /* Light background */
+  color: #1a1a2e; /* Dark text */
 }
 
 .clear-cart-modal .modal-header {
-  border-bottom: none;
-  padding-bottom: 0;
+  border: none;
 }
 
 .clear-cart-modal .modal-title {
-  font-size: 1.5rem;
-  color: #dc3545;
-  font-weight: bold;
-}
-
-.clear-cart-modal .modal-body {
-  padding: 20px 10px;
-  font-size: 1.1rem;
-  text-align: center;
-  color: #6c757d;
+  color: #ffb300; /* Gold color */
 }
 
 .clear-cart-modal .modal-footer {
-  display: flex;
-  justify-content: space-around;
-  padding-top: 0;
-  border-top: none;
-}
-
-.clear-cart-modal .btn-secondary {
-  background-color: #6c757d;
   border: none;
-}
-
-.clear-cart-modal .btn-secondary:hover {
-  background-color: #5a6268;
-}
-
-.clear-cart-modal .btn-danger {
-  background-color: #dc3545;
-  border: none;
-  font-weight: bold;
-}
-
-.clear-cart-modal .btn-danger:hover {
-  background-color: #c82333;
-}
-
-/* Responsive Styling */
-@media (max-width: 576px) {
-  .cart-item {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .item-actions {
-    margin-top: 10px;
-    justify-content: center;
-  }
-
-  .cart-item .btn-danger {
-    margin-left: 10px;
-  }
-
-  .quantity-input {
-    width: 50px;
-    margin: 0 auto;
-  }
-
-  .modal-footer {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .modal-footer h5 {
-    margin-bottom: 10px;
-  }
-}
-
-@media (min-width: 768px) and (max-width: 992px) {
-  .quantity-input {
-    width: 55px;
-  }
-
-  .cart-item-name {
-    font-size: 1.1rem;
-  }
-
-  .modal-footer h5 {
-    font-size: 1.2rem;
-  }
 }

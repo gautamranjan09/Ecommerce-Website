@@ -35,8 +35,8 @@ const Cart = ({ show, handleClose }) => {
 
   return (
     <>
-      <Modal show={show} onHide={handleClose} centered className="cart-modal">
-        <Modal.Header closeButton>
+      <Modal show={show} onHide={handleClose} centered className="cart-modal"  >
+        <Modal.Header closeButton >
           <Modal.Title >Your Cart</Modal.Title>
         </Modal.Header>
         <Modal.Body className='modal-content'>
@@ -79,7 +79,7 @@ const Cart = ({ show, handleClose }) => {
                       placeholder='Enter discount code'
                       onChange={(e) => setDiscountCode(e.target.value)}
                     />
-                    <Button variant='success' onClick={handleApplyDiscount}>
+                    <Button variant='success' onClick={handleApplyDiscount} style={{marginLeft:'5px'}}>
                       Apply
                     </Button>
                   </div>
