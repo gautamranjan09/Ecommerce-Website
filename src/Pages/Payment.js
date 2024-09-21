@@ -38,6 +38,7 @@ const Payment = () => {
       {step === 2 && <CardDetails onConfirm={handleConfirmPayment} onBack={handleBackToCart} />}
       {step === 3 && <Confirmation onConfirm={handlePlaceOrder} orderDetails={{ items, totalAmount }} />}
       {step === 4 && <OrderPlaced />}
+      
     </Container>
   );
 };

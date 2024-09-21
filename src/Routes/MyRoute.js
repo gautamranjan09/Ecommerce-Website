@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import Store from "../Pages/Store";
 import {
   Redirect,
@@ -14,8 +14,10 @@ import ThankYou from "../Pages/ThankYou";
 import Payment from "../Pages/Payment";
 import PaymentEvent from "../Pages/PaymentEvent";
 import AuthenticationForm from "../Pages/AuthenticationForm";
+import AuthContext from "../Components/store/auth-context";
 
 const MyRoute = (props) => {
+  const {isLoggedIn}= useContext(AuthContext);
   return (
     <>
       <Switch>
@@ -43,12 +45,12 @@ const MyRoute = (props) => {
         <Route path="/thank-you">
           <ThankYou />
         </Route>
-        <Route path="/payment">
+        {isLoggedIn && <Route path="/payment">
           <Payment/>
-        </Route>
-        <Route path="/paymentevent">
+        </Route>}
+       {isLoggedIn && <Route path="/paymentevent">
           <PaymentEvent/>
-        </Route>
+        </Route>}
         <Route path="*">
           <NotFound />
         </Route>

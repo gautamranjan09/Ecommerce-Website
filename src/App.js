@@ -1,23 +1,34 @@
 import "./App.css";
-import { Container, Navbar, Nav, NavDropdown, Button, Toast } from "react-bootstrap";
+import { Toast } from "react-bootstrap";
 import AppNavbar from "./Components/AppNavbar";
 import Footer from "./Components/Footer";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Cart from "./Components/Cart";
 import MyRoute from "./Routes/MyRoute";
+import AuthContext from "./Components/store/auth-context";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 function App() {
+  
+  const history = useHistory();
+  const {isLoggedIn}=useContext(AuthContext);
   const  [showCart, setShowCart] = useState(false);
   const [showToast,  setShowToast] = useState(false);
   const [toastMessage,   setToastMessage] = useState("");
 
-  const  handleCartShow = () => setShowCart(true);
+  const  handleCartShow = () => {
+    if(isLoggedIn){
+      setShowCart(true);
+    }
+    else{
+      history.replace("/auth");
+    }
+  };
   const  handleCartClose = () => setShowCart(false);
 
   const handleShowToast = (message)=>{
     setShowToast(true);
     setToastMessage(message);
-    
   }
 
   return (

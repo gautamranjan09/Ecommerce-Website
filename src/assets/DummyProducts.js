@@ -6,8 +6,8 @@ const products = [
       priceText: '₹79,900',
       price:79990,
       reviews: [
-        { user: 'Alice', comment: 'Great product!' },
-        { user: 'Bob', comment: 'Very useful.' }
+        { user: 'Alice', comment: 'Great product!',rating:1 },
+        { user: 'Bob', comment: 'Very useful.',rating:5 }
       ],
       image: ["/apple/apple_image-1.jpg","/apple/apple_image-2.jpg","/apple/apple_image-3.jpg", "/apple/apple_image-4.jpg"],
       description: 'The latest iPhone with a powerful A15 Bionic chip and advanced dual-camera system.',
@@ -18,8 +18,8 @@ const products = [
       priceText: '₹69,999',
       price:69999,
       reviews: [
-        { user: 'Alice', comment: 'Great product!' },
-        { user: 'Bob', comment: 'Very useful.' }
+        { user: 'Alice', comment: 'Great product!',rating:4 },
+        { user: 'Bob', comment: 'Very useful.',rating:2 }
       ],
       image: ["/samsung/image-1.jpg","/samsung/image-2.jpg","/samsung/image-3.jpg","/samsung/image-4.jpg"],
       description: 'A flagship Android phone featuring an incredible display and pro-grade cameras.',
@@ -30,8 +30,8 @@ const products = [
       priceText: '₹59,999',
       price:59999,
       reviews: [
-        { user: 'Alice', comment: 'Great product!' },
-        { user: 'Bob', comment: 'Very useful.' }
+        { user: 'Alice', comment: 'Great product!',rating:5 },
+        { user: 'Bob', comment: 'Very useful.',rating:5 }
       ],
       image: ["/google/image1.webp","/google/image2.webp","/google/image3.webp","/google/image4.webp"],
       description: 'Google’s own smartphone with a clean Android experience and stunning camera quality.',
@@ -42,8 +42,8 @@ const products = [
       priceText: '₹64,999',
       price:64999,
       reviews: [
-        { user: 'Alice', comment: 'Great product!' },
-        { user: 'Bob', comment: 'Very useful.' }
+        { user: 'Alice', comment: 'Great product!',rating:3 },
+        { user: 'Bob', comment: 'Very useful.',rating:2 }
       ],
       image: ["/oneplus/image1.jpg","/oneplus/image2.jpg","/oneplus/image3.jpg","/oneplus/image4.jpg"],
       description: 'A high-end phone with a fast display, powerful Snapdragon 888, and versatile cameras.',
@@ -54,8 +54,8 @@ const products = [
       priceText: '₹49,999',
       price:49999,
       reviews: [
-        { user: 'Alice', comment: 'Great product!' },
-        { user: 'Bob', comment: 'Very useful.' }
+        { user: 'Alice', comment: 'Great product!',rating:4 },
+        { user: 'Bob', comment: 'Very useful.',rating:5 }
       ],
       image: ["/mi/image1.jpg","/mi/image2.jpg","/mi/image3.jpg","/mi/image4.jpg"],
       description: 'A budget-friendly flagship killer with excellent specs and impressive display.',
@@ -66,8 +66,8 @@ const products = [
       priceText: '₹99,999',
       price:99999,
       reviews: [
-        { user: 'Alice', comment: 'Great product!' },
-        { user: 'Bob', comment: 'Very useful.' }
+        { user: 'Alice', comment: 'Great product!',rating:2 },
+        { user: 'Bob', comment: 'Very useful.',rating:3 }
       ],
       image: ["/moto/image1.jpg","/moto/image2.jpg","/moto/image3.jpg","/moto/image4.jpg"],
       description: 'Sony’s flagship smartphone with a focus on photography and high-end features.',
@@ -78,8 +78,8 @@ const products = [
       priceText: '₹84,999',
       price:84999,
       reviews: [
-        { user: 'Alice', comment: 'Great product!' },
-        { user: 'Bob', comment: 'Very useful.' }
+        { user: 'Alice', comment: 'Great product!',rating:5 },
+        { user: 'Bob', comment: 'Very useful.',rating:3 }
       ],
       image: ["/oppo/image1.jpg","/oppo/image2.jpg","/oppo/image3.jpg","/oppo/image4.jpg"],
       description: 'A beautifully designed phone with stunning performance and a 120Hz display.',
@@ -90,8 +90,8 @@ const products = [
       priceText: '₹89,999',
       price:89999,
       reviews: [
-        { user: 'Alice', comment: 'Great product!' },
-        { user: 'Bob', comment: 'Very useful.' }
+        { user: 'Alice', comment: 'Great product!',rating:4 },
+        { user: 'Bob', comment: 'Very useful.',rating:5 }
       ],
       image: ["/huwai/image1.jpg","/huwai/image2.jpg","/huwai/image3.jpg","/huwai/image4.jpg"],
       description: 'Huawei’s premium phone offering a great design, powerful hardware, and a versatile camera setup.',

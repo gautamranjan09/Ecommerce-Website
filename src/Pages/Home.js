@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Container, Row, Col, Button, Carousel } from "react-bootstrap";
 import "./Home.css"; // Styling for Home component
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import AuthContext from "../Components/store/auth-context";
 
 const Home = () => {
   const events = [
@@ -69,6 +70,7 @@ const Home = () => {
   // State for countdown
   const [countdown, setCountdown] = useState("");
   const history = useHistory();
+  const { isLoggedIn } = useContext(AuthContext);
 
   // Countdown logic
   useEffect(() => {
@@ -95,125 +97,135 @@ const Home = () => {
   }, []);
 
   return (
-    <Container fluid className="home-container">
-      {/* Hero Section */}
-      <div className="hero-section">
-        <Carousel>
-          <Carousel.Item>
-            <img
-              src="/hero_section_home-page1.jpg"
-              alt="First slide"
-              className="d-block w-100"
-            />
-            <Carousel.Caption>
-              <h3>Welcome to Our Events</h3>
-              <p>Join us for unforgettable experiences!</p>
-            </Carousel.Caption>
-          </Carousel.Item>
-          <Carousel.Item>
-            <img
-              src="/hero_section_home-page2.jpg"
-              alt="Second slide"
-              className="d-block w-100"
-            />
-            <Carousel.Caption>
-              <h3>Get Your Tickets Now!</h3>
-              <p>Don't miss out on our upcoming events.</p>
-            </Carousel.Caption>
-          </Carousel.Item>
-        </Carousel>
-      </div>
+    <>
+      <Container fluid className="home-container">
+        {/* Hero Section */}
+        <div className="hero-section">
+          <Carousel>
+            <Carousel.Item>
+              <img
+                src="/hero_section_home-page1.jpg"
+                alt="First slide"
+                className="d-block w-100"
+              />
+              <Carousel.Caption>
+                <h3>Welcome to Our Events</h3>
+                <p>Join us for unforgettable experiences!</p>
+              </Carousel.Caption>
+            </Carousel.Item>
+            <Carousel.Item>
+              <img
+                src="/hero_section_home-page2.jpg"
+                alt="Second slide"
+                className="d-block w-100"
+              />
+              <Carousel.Caption>
+                <h3>Get Your Tickets Now!</h3>
+                <p>Don't miss out on our upcoming events.</p>
+              </Carousel.Caption>
+            </Carousel.Item>
+          </Carousel>
+        </div>
 
-      {/* Featured Events Section */}
-      <Container className="my-5">
-        <h2 className="text-center">Featured Events</h2>
-        {featuredEvents.map((event, index) => (
-          <Row className="my-3" key={index}>
-            <Col md={12} className="text-center" >
-              <h4>{event.title}</h4>
+        {/* Featured Events Section */}
+        <Container className="my-5">
+          <h2 className="text-center">Featured Events</h2>
+          {featuredEvents.map((event, index) => (
+            <Row className="my-3" key={index}>
+              <Col md={12} className="text-center">
+                <h4>{event.title}</h4>
+                <p>
+                  {event.date} - {event.location}
+                </p>
+                <p>Price: ₹{event.priceText}</p>
+                <Button
+                  variant="primary"
+                  onClick={() => {
+                    if (!isLoggedIn) {
+                      history.replace("/Auth");
+                    } else {
+                      history.push({
+                        pathname: "/paymentevent",
+                        state: {
+                          eventName: event.venue,
+                          price: event.price,
+                          eventLocation: event.location,
+                          eventDate: event.date,
+                        },
+                      });
+                    }
+                  }}
+                >
+                  Buy Tickets
+                </Button>
+              </Col>
+            </Row>
+          ))}
+        </Container>
+
+        {/* Countdown Timer Section */}
+        <div className="countdown-section text-center my-5">
+          <h2>Upcoming Event Countdown</h2>
+          <h3>
+            {events[5].date} - {events[5].location}
+          </h3>
+          <p>{countdown}</p>
+        </div>
+
+        {/* Upcoming Events Section */}
+        <Container className="my-5">
+          <h2 className="text-center">Upcoming Events</h2>
+          {events.map((event, index) => (
+            <Row className="event-row my-4" key={index}>
+              <Col md={3} className="text-center date-column">
+                <h4>{event.date}</h4>
+              </Col>
+              <Col md={6} className="text-center venue-column">
+                <h5>{event.location}</h5>
+                <p>{event.venue}</p>
+                <p>Price: ₹{event.priceText}</p>
+              </Col>
+              <Col md={3} className="text-center button-column">
+                <Button
+                  variant="primary"
+                  onClick={() => {
+                    if (!isLoggedIn) {
+                      history.replace("/Auth");
+                    } else {
+                      history.push({
+                        pathname: "/paymentevent",
+                        state: {
+                          eventName: event.venue,
+                          price: event.price,
+                          eventLocation: event.location,
+                          eventDate: event.date,
+                        },
+                      });
+                    }
+                  }}
+                >
+                  Buy Tickets
+                </Button>
+              </Col>
+            </Row>
+          ))}
+        </Container>
+
+        {/* Testimonials Section */}
+        <Container className="my-5">
+          <h2 className="text-center">What Our Customers Say</h2>
+          <Row className="my-3">
+            <Col md={12} className="text-center">
               <p>
-                {event.date} - {event.location}
+                "An amazing experience! Can't wait for the next event!" -
+                Customer A
               </p>
-              <p>Price: ₹{event.priceText}</p>
-              <Button
-                variant="primary"
-                onClick={() =>
-                  history.push({
-                    pathname: "/paymentevent",
-                    state: {
-                      eventName: event.title,
-                      price: event.price,
-                      eventLocation: event.location,
-                      eventDate: event.date,
-                    },
-                  })
-                }
-              >
-                Buy Tickets
-              </Button>
+              <p>"The best events in town! Highly recommend!" - Customer B</p>
             </Col>
           </Row>
-        ))}
+        </Container>
       </Container>
-
-      {/* Countdown Timer Section */}
-      <div className="countdown-section text-center my-5">
-        <h2>Upcoming Event Countdown</h2>
-        <h3>
-          {events[5].date} - {events[5].location}
-        </h3>
-        <p>{countdown}</p>
-      </div>
-
-      {/* Upcoming Events Section */}
-      <Container className="my-5">
-        <h2 className="text-center">Upcoming Events</h2>
-        {events.map((event, index) => (
-          <Row className="event-row my-4" key={index}>
-            <Col md={3} className="text-center date-column">
-              <h4>{event.date}</h4>
-            </Col>
-            <Col md={6} className="text-center venue-column">
-              <h5>{event.location}</h5>
-              <p>{event.venue}</p>
-              <p>Price: ₹{event.priceText}</p>
-            </Col>
-            <Col md={3} className="text-center button-column">
-              <Button
-                variant="primary"
-                onClick={() =>
-                  history.push({
-                    pathname: "/paymentevent",
-                    state: {
-                      eventName: event.venue,
-                      price: event.price,
-                      eventLocation: event.location,
-                      eventDate: event.date,
-                    },
-                  })
-                }
-              >
-                Buy Tickets
-              </Button>
-            </Col>
-          </Row>
-        ))}
-      </Container>
-
-      {/* Testimonials Section */}
-      <Container className="my-5">
-        <h2 className="text-center">What Our Customers Say</h2>
-        <Row className="my-3">
-          <Col md={12} className="text-center">
-            <p>
-              "An amazing experience! Can't wait for the next event!" - Customer
-              A
-            </p>
-            <p>"The best events in town! Highly recommend!" - Customer B</p>
-          </Col>
-        </Row>
-      </Container>
-    </Container>
+    </>
   );
 };
 

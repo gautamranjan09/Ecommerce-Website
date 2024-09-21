@@ -4,19 +4,30 @@ import products from "../assets/DummyProducts"; // Import your product data
 import { Button, Carousel, Col, Container, Row } from "react-bootstrap";
 import CartContext from "../Components/store/CartContext";
 import './ProductDetails.css';
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import AuthContext from "../Components/store/auth-context";
 
 const ProductDetails = ({onShowToast} ) => {
   const { productId } = useParams(); // Get the productId from the URL
   const [zoomedImage, setZoomedImage] = useState(null); // State for zoomed image
   const { addItem } = useContext(CartContext);
+  const history =  useHistory();
+  const {isLoggedIn} = useContext(AuthContext);
+
 
   // Find the product based on the productId
   const product = products.find((p) => p.id === parseInt(productId));
 
   const handleAddToCart = () => {
-    addItem(product);
-    window.history.back();
-    onShowToast(`${product.name} has been added to the cart!`);
+    if(isLoggedIn){
+      addItem(product);
+      window.history.back();
+      onShowToast(`${product.name} has been added to the cart!`);
+  }
+  else{
+      history.replace("/");
+  }
+    
   };
 
   if (!product) {
@@ -57,7 +68,7 @@ const ProductDetails = ({onShowToast} ) => {
             {product.reviews.length > 0 ? (
               product.reviews.map((review, index) => (
                 <div key={index} className="review">
-                  <p className="rating">{Array(review.rating).fill('⭐⭐⭐⭐')}</p>
+                  <p className="rating">{Array(review.rating).fill('⭐')}</p>
                   <p><strong>{review.user}</strong>: {review.comment}</p>
                 </div>
               ))

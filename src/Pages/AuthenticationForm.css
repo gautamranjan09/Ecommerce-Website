@@ -38,12 +38,17 @@
   border: none;
   color: white;
 }
+.AuthenticationForm-tab-content .form-control::placeholder {
+    color: white;
+  }
 
 .AuthenticationForm-tab-content .form-control:focus {
   background-color: #2e2e44;
+  color: white;
   border-color: #ffb300;
   box-shadow: 0 0 0 0.2rem rgba(255, 179, 0, 0.25);
 }
+
 
 /* Button Styles */
 .AuthenticationForm-button {

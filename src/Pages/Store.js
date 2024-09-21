@@ -3,11 +3,14 @@ import { Container, Row, Col, Card, Button, Dropdown } from "react-bootstrap";
 import "./Store.css"; // Custom CSS for additional styling
 import CartContext from "../Components/store/CartContext";
 import products from "../assets/DummyProducts";
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import { Link, useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import AuthContext from "../Components/store/auth-context";
 
 const Store = ({ onShowToast }) => {
     const { addItem } = useContext(CartContext);
     const [sortOption, setSortOption] = useState("default"); // Default sort option
+    const {isLoggedIn}= useContext(AuthContext);
+    const history = useHistory();
 
     // Function to handle sorting of products
     const sortedProducts = () => {
@@ -27,8 +30,13 @@ const Store = ({ onShowToast }) => {
 
     const addToCartHandler = (product, event) => {
         event.preventDefault();
-        addItem(product);
-        onShowToast(`${product.name} has been added to the cart!`);
+        if(isLoggedIn){
+            addItem(product);
+            onShowToast(`${product.name} has been added to the cart!`);
+        }
+        else{
+            history.replace("/");
+        }
     };
 
     return (

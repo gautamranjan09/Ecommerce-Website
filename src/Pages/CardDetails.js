@@ -36,7 +36,7 @@ const CardDetails = ({ onConfirm, onBack }) => {
         <Form.Text className="text-muted">Enter 16 digits without spaces.</Form.Text>
       </Form.Group>
 
-      <Form.Group controlId="formCardHolder">
+      <Form.Group controlId="formCardHolder" className='mt-3'>
         <Form.Label>Card Holder Name</Form.Label>
         <Form.Control
           type="text"
@@ -48,7 +48,7 @@ const CardDetails = ({ onConfirm, onBack }) => {
         />
       </Form.Group>
 
-      <div className="d-flex justify-content-between">
+      <div className="d-flex justify-content-between mt-3">
         <Form.Group controlId="formExpiryDate" className="me-2">
           <Form.Label>Expiry Date (MM/YY)</Form.Label>
           <Form.Control
@@ -78,7 +78,7 @@ const CardDetails = ({ onConfirm, onBack }) => {
         </Form.Group>
       </div>
 
-      <div className="mt-3">
+      <div className="mt-4">
         <Button variant="secondary" onClick={onBack}>Back to Cart</Button>
         <Button variant="success" type="submit" className="ms-2">Confirm Payment</Button>
       </div>

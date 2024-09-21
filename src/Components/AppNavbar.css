@@ -17,7 +17,7 @@
 }
 
 /* Shopping cart icon styles */
-.navbar .d-flex.align-items-center {
+.navbar .cart-icon {
   color: white; /* Default color for shopping cart icon */
 }
 
@@ -46,6 +46,7 @@
 .navbar .btn-outline-light {
   /* color: #ffb300;
   border-color: #ffb300; */
+  width: 75px;
   transition: transform 0.2s ease, background-color 0.3s ease; /* Transition for click animation */
 }
 
@@ -58,4 +59,20 @@
 .navbar .btn-outline-light:active {
   transform: scale(0.95); /* Button shrinks slightly when clicked */
   background-color: #e6a700; /* Slightly darker yellow for click effect */
+}
+/* Align buttons to the left in toggle mode */
+@media (max-width: 992px) {
+  .navbar-collapse {
+    justify-content: flex-start; /* Align items to the left */
+  }
+
+  .navbar-nav {
+    flex-direction: column; /* Stack links vertically */
+    align-items: flex-start; /* Align to the left */
+  }
+
+  .navbar .btn-outline-light, .cart-icon, .welcome-message {
+
+    align-self: flex-start; /* Align the button to the left */
+  }
 }

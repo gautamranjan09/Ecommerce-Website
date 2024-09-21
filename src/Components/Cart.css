@@ -127,7 +127,7 @@ button.btn-success:hover {
 
 /* Clear Cart Confirmation Modal */
 .clear-cart-modal .modal-content {
-  background-color: #f8f9fa; /* Light background */
+  background-color: #FFFAF0; /* Light background */
   color: #1a1a2e; /* Dark text */
 }
 
