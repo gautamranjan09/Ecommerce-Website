@@ -5,14 +5,14 @@ import './NotFound.css'; // Create a separate CSS file for styling
 
 const NotFound = () => {
   return (
-    <Container fluid className="not-found-container text-center">
-      <Row className="justify-content-center my-5">
+    <Container fluid className="not-found-container text-center align-content-center">
+      <Row className="justify-content-center  my-5">
         <Col md={8}>
           <h1 className="not-found-title">404 - Page Not Found</h1>
           <p className="not-found-message">
             Oops! The page you are looking for does not exist.
           </p>
-          <Link to="/home">
+          <Link to="/main/home">
             <Button variant="primary" className="go-home-btn">Go Back to Home</Button>
           </Link>
         </Col>

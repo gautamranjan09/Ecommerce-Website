@@ -16,26 +16,26 @@ const AppNavbar = ({ onCartClick, username }) => {
   return (
     <Navbar className="py-4" variant="dark" expand="lg">
       <Container>
-        <Navbar.Brand as={Link} to="/home" className="fw-bold">
+        <Navbar.Brand as={Link} to="/main/home" className="fw-bold">
           GR Trendz
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto d-flex justify-content-center">
-            <Nav.Link as={NavLink} className="mx-4 nav-link" to="/home" activeStyle={{ textDecoration: 'underline', color: '#ffb300' }}>
+            <Nav.Link as={NavLink} className="mx-4 nav-link" to="/main/home" activeStyle={{ textDecoration: 'underline', color: '#ffb300' }}>
               Home
             </Nav.Link>
-            <Nav.Link as={NavLink} className="mx-4 nav-link" to="/store" activeStyle={{ textDecoration: 'underline', color: '#ffb300' }}>
+            <Nav.Link as={NavLink} className="mx-4 nav-link" to="/main/store" activeStyle={{ textDecoration: 'underline', color: '#ffb300' }}>
               Store
             </Nav.Link>
-            <Nav.Link as={NavLink} className="mx-4 nav-link" to="/about" activeStyle={{ textDecoration: 'underline', color: '#ffb300' }}>
+            <Nav.Link as={NavLink} className="mx-4 nav-link" to="/main/about" activeStyle={{ textDecoration: 'underline', color: '#ffb300' }}>
               About
             </Nav.Link>
-            <Nav.Link as={NavLink} className="mx-4 nav-link" to="/contact" activeStyle={{ textDecoration: 'underline', color: '#ffb300' }}>
+            <Nav.Link as={NavLink} className="mx-4 nav-link" to="/main/contact" activeStyle={{ textDecoration: 'underline', color: '#ffb300' }}>
               Contact Us
             </Nav.Link>
             {isLoggedIn && (
-              <Nav.Link as={NavLink} className="mx-4 nav-link" to="/profile" activeStyle={{ textDecoration: 'underline', color: '#ffb300' }}>
+              <Nav.Link as={NavLink} className="mx-4 nav-link" to="/main/profile" activeStyle={{ textDecoration: 'underline', color: '#ffb300' }}>
                 Profile
               </Nav.Link>
             )}

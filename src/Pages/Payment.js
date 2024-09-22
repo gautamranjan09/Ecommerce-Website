@@ -18,6 +18,8 @@ const Payment = () => {
 
   const handleConfirmPayment = (details) => {
     setCardDetails(details);
+    console.log(cardDetails);
+    
     setStep(3);
   };
 

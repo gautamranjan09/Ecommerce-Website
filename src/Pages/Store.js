@@ -61,7 +61,7 @@ const Store = ({ onShowToast }) => {
             <Row className="mx-5">
                 {sortedProducts().map((product) => (
                     <Col key={product.id} sm={12} md={6} lg={4} className="mb-4">
-                        <Link to={`/store/${product.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+                        <Link to={`/main/store/${product.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
                             <Card className="h-100">
                                 <Card.Img variant="top" src={product.image[0]} />
                                 <Card.Body>

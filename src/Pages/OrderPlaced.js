@@ -27,7 +27,7 @@ const OrderPlaced = () => {
       <Button
         variant="success"
         className="confirm-button"
-        onClick={() => history.replace("/home")}
+        onClick={() => history.replace("/main/home")}
       >
         Go to Home
       </Button>

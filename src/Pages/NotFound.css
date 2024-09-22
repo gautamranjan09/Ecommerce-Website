@@ -1,23 +1,24 @@
 .not-found-container {
+  height:100vh;
     background-color: #f9f9f9; /* Light background for contrast */
     padding: 20px;
     border-radius: 10px; /* Rounded corners */
   }
   
   .not-found-title {
-    font-size: 2.5rem; /* Larger font size for the title */
+    font-size: 4.5rem; /* Larger font size for the title */
     color: #dc3545; /* Bootstrap danger color */
     margin-bottom: 20px; /* Space below the title */
   }
   
   .not-found-message {
-    font-size: 1.25rem; /* Slightly larger font for the message */
+    font-size: 1.5rem; /* Slightly larger font for the message */
     color: #333; /* Dark text for readability */
     margin-bottom: 30px; /* Space below the message */
   }
   
-  .go-home-btn {
+ .not-found-container .go-home-btn {
     padding: 10px 20px; /* Increased padding for the button */
-    font-size: 1.1rem; /* Slightly larger font size */
+    font-size: 1.25rem; /* Slightly larger font size */
   }
   

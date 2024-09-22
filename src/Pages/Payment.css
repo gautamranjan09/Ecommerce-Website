@@ -3,7 +3,7 @@
     border-radius: 10px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     padding: 50px;
-    max-width: 800px; /* Limit width for better focus */
+    max-width: 850px; /* Limit width for better focus */
     margin-top: 50px;
     margin-bottom: 50px;
   }
@@ -19,10 +19,7 @@
     overflow: hidden; /* Prevent overflow */
   }
   
-  .cart-item {
-    background-color: #ffffff; /* White background for items */
-    border-bottom: 1px solid #e9ecef; /* Subtle divider */
-  }
+  
   
   .cart-item:last-child {
     border-bottom: none; /* Remove border for last item */

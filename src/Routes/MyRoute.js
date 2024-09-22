@@ -17,41 +17,40 @@ import AuthenticationForm from "../Pages/AuthenticationForm";
 import AuthContext from "../Components/store/auth-context";
 
 const MyRoute = (props) => {
-  const {isLoggedIn}= useContext(AuthContext);
+  const { isLoggedIn } = useContext(AuthContext);
   return (
     <>
       <Switch>
-        <Route path="/" exact>
-          <Redirect to="/Auth" />
-        </Route>
-        <Route path="/Auth">
-          <AuthenticationForm/>
-        </Route>
-        <Route path="/home">
+        <Route path="/main/home">
           <Home />
         </Route>
-        <Route path="/store" exact>
+        <Route path="/main/store" exact>
           <Store onShowToast={props.onShowToast} />
         </Route>
-        <Route path="/store/:productId">
+        <Route path="/main/store/:productId">
           <ProductDetails onShowToast={props.onShowToast} />
         </Route>
-        <Route path="/about">
+        <Route path="/main/about">
           <About />
         </Route>
-        <Route path="/contact">
+        <Route path="/main/contact">
           <Contact />
         </Route>
-        <Route path="/thank-you">
+        <Route path="/main/thank-you">
           <ThankYou />
         </Route>
-        {isLoggedIn && <Route path="/payment">
-          <Payment/>
-        </Route>}
-       {isLoggedIn && <Route path="/paymentevent">
-          <PaymentEvent/>
-        </Route>}
-        <Route path="*">
+        {isLoggedIn && (
+          <Route path="/main/payment" exact>
+            <Payment />
+          </Route>
+        )}
+        {isLoggedIn && (
+          <Route path="/main/paymentevent">
+            <PaymentEvent />
+          </Route>
+        )}
+        {/* Fallback route for unmatched paths */}
+        <Route path="/main/*">
           <NotFound />
         </Route>
       </Switch>

@@ -14,12 +14,13 @@ const AuthenticationForm = () => {
   
   //for login and signup data
   const loginFormRef = useRef(null);
-  const  signUpFormRef = useRef(null);
+  const signUpFormRef = useRef(null);
+  const forgotPasswordFormRef = useRef(null);
 
   //for checking password and confirm password is same
   const [errorMessage,  setErrorMessage] = useState('');
 
-  const submitHandler =async (event)=>{
+  const submitHandler = async (event) => {
     event.preventDefault();
     let URL;
     setIsLoading(true);
@@ -40,7 +41,7 @@ const AuthenticationForm = () => {
     if(key === 'signup'){
       if(fromData.password !==  fromData.confirmPassword){
         console.log("error");
-  
+        setIsLoading(false);
         setErrorMessage('Passwords do not match');
         return;
       }
@@ -72,7 +73,7 @@ const AuthenticationForm = () => {
       const responseData  = await response.json();
       console.log(responseData);
       login(responseData.idToken);
-      history.replace('/home');
+      key === 'login' ? history.replace('/main/home'):setKey('login');
 
     } catch  (error) {
       alert(error.message);
@@ -82,10 +83,40 @@ const AuthenticationForm = () => {
     setErrorMessage("");
   }
 
+  const forgotPasswordHandler = async (event) => {
+    event.preventDefault();
+    setIsLoading(true);
+    const email = forgotPasswordFormRef.current.email.value;
+
+    try {
+      const response = await fetch("https://identitytoolkit.googleapis.com/v1/accounts:sendOobCode?key=AIzaSyCmVNApFRGhZUEdeW5nAImteSXqdRKPi3U", {
+        method: 'POST',
+        body: JSON.stringify({
+          "requestType": "PASSWORD_RESET",
+          "email": email
+        }),
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      });
+
+      setIsLoading(false);
+      if (!response.ok) {
+        const responseData = await response.json();
+        throw new Error(responseData.error?.message || "Password reset failed!");
+      }
+      alert("Password reset email sent. Please check your inbox.");
+      setKey('login');
+    } catch (error) {
+      alert(error.message);
+     // setErrorMessage(error.message);
+    }
+
+    forgotPasswordFormRef.current.reset();
+  }
 
   return (
     <Container className="AuthenticationForm-container"  fluid={true}>
-
       <h2 className="AuthenticationForm-title">Welcome to GR Trendz</h2>
       <Tabs activeKey={key} onSelect={(k) => setKey(k)} className="mb-3 AuthenticationForm-tabs">
         <Tab eventKey="login" title="Login" className="AuthenticationForm-tab-content">
@@ -105,7 +136,7 @@ const AuthenticationForm = () => {
               {isLoading && <><span class="spinner-border spinner-border-sm"></span> Loading...</>}
             </Button>
           </Form>
-          <Button variant="link" className="AuthenticationForm-forgot-password">
+          <Button variant="link" className="AuthenticationForm-forgot-password" onClick={() => setKey('forgotPassword')}>
             Forgot Password?
           </Button>
         </Tab>
@@ -116,19 +147,16 @@ const AuthenticationForm = () => {
             <Form.Group controlId="formBasicName">
               <Form.Label>Name</Form.Label>
               <Form.Control type="text" name='name' placeholder="Enter your name" required/>
-
             </Form.Group>
 
             <Form.Group controlId="formBasicEmail">
               <Form.Label>Email address</Form.Label>
               <Form.Control type="email" name='email' placeholder="Enter your email" required/>
-
             </Form.Group>
 
             <Form.Group controlId="formBasicPassword">
               <Form.Label>Password</Form.Label>
               <Form.Control type="password" name='password' placeholder="Password" required/>
-
             </Form.Group>
 
             <Form.Group controlId="formBasicConfirmPassword">
@@ -138,14 +166,30 @@ const AuthenticationForm = () => {
 
             <Button variant="primary" type="submit" className="AuthenticationForm-button fw-bolder">
               {!isLoading && "Sign Up"}
-              {isLoading && <><span class="spinner-border spinner-border-sm"></span> Loading...</>}
+              {isLoading && <><span className="spinner-border spinner-border-sm"></span> Loading...</>}
             </Button>
             {isLoading && <p>Loading...</p>}
           </Form>
         </Tab>
+
+        <Tab eventKey="forgotPassword" title="Forgot Password" className="AuthenticationForm-tab-content">
+          <Form onSubmit={forgotPasswordHandler} ref={forgotPasswordFormRef}>
+            <Form.Group controlId="formBasicEmail">
+              <Form.Label>Email address</Form.Label>
+              <Form.Control type="email" name='email' placeholder="Enter your email" required/>
+            </Form.Group>
+            <Button variant="primary" type="submit" className="AuthenticationForm-button fw-bolder mt-3">
+              {!isLoading && "Reset Password"}
+              {isLoading && <><span className="spinner-border spinner-border-sm"></span> Loading...</>}
+            </Button>
+          </Form>
+          <Button variant="link" className="AuthenticationForm-back-to-login mt-3" onClick={() => setKey('login')}>
+            Back to Login
+          </Button>
+        </Tab>
       </Tabs>
 
-      <Button variant="secondary" className="AuthenticationForm-continue-guest" onClick={()=> history.push("/home")}>
+      <Button variant="secondary" className="AuthenticationForm-continue-guest" onClick={()=> history.push("/main/home")}>
         Continue as Guest
       </Button>
     </Container>

@@ -145,9 +145,9 @@ const Home = () => {
                       history.replace("/Auth");
                     } else {
                       history.push({
-                        pathname: "/paymentevent",
+                        pathname: "/main/paymentevent",
                         state: {
-                          eventName: event.venue,
+                          eventName: event.title,
                           price: event.price,
                           eventLocation: event.location,
                           eventDate: event.date,
@@ -193,7 +193,7 @@ const Home = () => {
                       history.replace("/Auth");
                     } else {
                       history.push({
-                        pathname: "/paymentevent",
+                        pathname: "/main/paymentevent",
                         state: {
                           eventName: event.venue,
                           price: event.price,

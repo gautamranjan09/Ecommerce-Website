@@ -113,7 +113,7 @@ const PaymentEvent = () => {
 
           <button
             className="paymentevent-confirm-button"
-            onClick={() => history.replace("/home")}
+            onClick={() => history.replace("/main/home")}
           >
             Go to Home
           </button>
@@ -122,7 +122,7 @@ const PaymentEvent = () => {
             className="paymentevent-download-button"
             onClick={() => {
               alert("Ticket downloaded!");
-              history.replace("/home");
+              history.replace("/main/home");
             }}
           >
             Download Ticket

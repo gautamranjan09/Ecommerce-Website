@@ -91,3 +91,16 @@
 .form-group {
   margin-bottom: 1.5rem;
 }
+.AuthenticationForm-forgot-password,
+.AuthenticationForm-back-to-login {
+  color: #ffb300;
+  text-align: center;
+  display: block;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.AuthenticationForm-forgot-password:hover,
+.AuthenticationForm-back-to-login:hover {
+  color: #e6a700;
+}
