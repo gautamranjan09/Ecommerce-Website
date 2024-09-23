@@ -27,7 +27,7 @@ const ContactUs = () => {
     // Reset form
     setFormData({ name: "", email: "", phone: "", message: "", subscribe: false });
     setTimeout(() => {
-      history.push("/thank-you");
+      history.push("/main/thank-you");
     }, 3000); // Redirect after 3 seconds
   };
 

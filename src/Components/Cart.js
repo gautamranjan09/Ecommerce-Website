@@ -1,17 +1,18 @@
-import React, { useContext, useState } from 'react';
-import { Button, Form, Image, ListGroup, Modal } from 'react-bootstrap';
-import { useHistory } from 'react-router-dom'; // Import useHistory
-import CartContext from './store/CartContext';
+import React, { useContext, useState } from "react";
+import { Button, Form, Image, ListGroup, Modal } from "react-bootstrap";
+import { useHistory } from "react-router-dom"; // Import useHistory
+import CartContext from "./store/CartContext";
 import "./Cart.css";
-import { Link } from 'react-router-dom/cjs/react-router-dom.min';
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 const Cart = ({ show, handleClose }) => {
-  const { items, totalAmount, removeItem, clearCart, updateItemQuantity } = useContext(CartContext);
-  const [discountCode, setDiscountCode] = useState('');
+  const { items, totalAmount, removeItem, clearCart, updateItemQuantity } =
+    useContext(CartContext);
+  const [discountCode, setDiscountCode] = useState("");
   const [discountAmount, setDiscountAmount] = useState(0);
   const [isDiscountApplied, setIsDiscountApplied] = useState(false);
   const [showConfirmModal, setShowConfirmModal] = useState(false);
-  
+
   const history = useHistory();
 
   const handleClearCart = () => {
@@ -20,18 +21,18 @@ const Cart = ({ show, handleClose }) => {
   };
 
   const handleApplyDiscount = () => {
-    if (discountCode === 'DISCOUNT10') {
+    if (discountCode === "DISCOUNT10") {
       const discount = totalAmount * 0.1;
       setDiscountAmount(discount);
       setIsDiscountApplied(true);
     } else {
-      alert('Invalid discount code');
+      alert("Invalid discount code");
     }
   };
 
   const handleProceedToPayment = () => {
     handleClose(); // Close the cart modal
-    history.push('/main/payment'); // Navigate to the Payment page
+    history.push("/main/payment"); // Navigate to the Payment page
   };
 
   return (
@@ -47,14 +48,14 @@ const Cart = ({ show, handleClose }) => {
             <>
               <ListGroup className="cart-modal-body">
                 {items.map((item) => (
-                  <Link
-                    to={`/main/store/${item.id}`}
-                    style={{ textDecoration: "none", color: "inherit" }}
-                    onClick={handleClose}
+                  <ListGroup.Item
+                    key={item.id}
+                    className="d-flex justify-content-between align-items-center cart-item rounded"
                   >
-                    <ListGroup.Item
-                      key={item.id}
-                      className="d-flex justify-content-between align-items-center cart-item rounded"
+                    <Link
+                      to={`/main/store/${item.id}`}
+                      style={{ textDecoration: "none", color: "inherit" }}
+                      onClick={handleClose}
                     >
                       <div className="item-info d-flex align-items-center">
                         <Image
@@ -68,29 +69,27 @@ const Cart = ({ show, handleClose }) => {
                           ₹{item.price}
                         </div>
                       </div>
-                      <div className="d-flex align-items-center justify-content-between item-actions">
-                        <Form.Control
-                          type="number"
-                          min="1"
-                          value={item.quantity}
-                          onClick={(e)=> e.preventDefault()}
-                          onChange={(e) => {
-                            updateItemQuantity(item.id, e.target.value);
-                          }}
-                          className="quantity-input"
-                        />
-                        <Button
-                          variant="danger"
-                          onClick={(e) => {
-                            e.preventDefault(); // Prevent the link click from being triggered
-                            removeItem(item.id);
-                          }}
-                        >
-                          Remove
-                        </Button>
-                      </div>
-                    </ListGroup.Item>
-                  </Link>
+                    </Link>
+                    <div className="d-flex align-items-center justify-content-between item-actions">
+                      <Form.Control
+                        type="number"
+                        min="1"
+                        value={item.quantity}
+                        onChange={(e) => {
+                          updateItemQuantity(item.id, e.target.value);
+                        }}
+                        className="quantity-input"
+                      />
+                      <Button
+                        variant="danger"
+                        onClick={(e) => {
+                          removeItem(item.id);
+                        }}
+                      >
+                        Remove
+                      </Button>
+                    </div>
+                  </ListGroup.Item>
                 ))}
               </ListGroup>
 
@@ -176,6 +175,6 @@ const Cart = ({ show, handleClose }) => {
       </Modal>
     </>
   );
-}
+};
 
 export default Cart;

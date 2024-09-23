@@ -9,7 +9,7 @@ const AuthenticationForm = () => {
   const [key, setKey] = useState('login');
 
   const [isLoading,  setIsLoading] = useState(false);
-  const {login}= useContext(AuthContext);
+  const {login, signup}= useContext(AuthContext);
   const history = useHistory();
   
   //for login and signup data
@@ -28,18 +28,18 @@ const AuthenticationForm = () => {
 
     console.log( formRef.current.email.value);
     
-    const  fromData = {
+    const  formData = {
       "name": formRef.current.name?.value,
       "email":  formRef.current.email?.value,
       "password": formRef.current.password?.value,
       "confirmPassword": formRef.current.confirm_password?.value ,
     };
-    console.log(fromData);
-    console.log(fromData.name, fromData.email);
+    console.log(formData);
+    console.log(formData.name, formData.email);
     console.log(key);
 
     if(key === 'signup'){
-      if(fromData.password !==  fromData.confirmPassword){
+      if(formData.password !==  formData.confirmPassword){
         console.log("error");
         setIsLoading(false);
         setErrorMessage('Passwords do not match');
@@ -55,8 +55,8 @@ const AuthenticationForm = () => {
       const response = await fetch(URL, {
         method: 'POST',
         body:  JSON.stringify({
-          "email": fromData.email,
-          "password": fromData.password,
+          "email": formData.email,
+          "password": formData.password,
           "returnSecureToken": true
         }),
         headers: {
@@ -72,7 +72,10 @@ const AuthenticationForm = () => {
       }
       const responseData  = await response.json();
       console.log(responseData);
-      login(responseData.idToken);
+
+      if (key === 'signup') signup(responseData.idToken, formData.name);
+
+      login(responseData.idToken, responseData.displayName);
       key === 'login' ? history.replace('/main/home'):setKey('login');
 
     } catch  (error) {
@@ -93,7 +96,7 @@ const AuthenticationForm = () => {
         method: 'POST',
         body: JSON.stringify({
           "requestType": "PASSWORD_RESET",
-          "email": email
+          "email": email,
         }),
         headers: {
           'Content-Type': 'application/json',
@@ -133,7 +136,7 @@ const AuthenticationForm = () => {
 
             <Button variant="primary" type="submit" className="AuthenticationForm-button fw-bolder" >
               {!isLoading && "Log In"}
-              {isLoading && <><span class="spinner-border spinner-border-sm"></span> Loading...</>}
+              {isLoading && <><span className="spinner-border spinner-border-sm"></span> Loading...</>}
             </Button>
           </Form>
           <Button variant="link" className="AuthenticationForm-forgot-password" onClick={() => setKey('forgotPassword')}>

@@ -6,9 +6,9 @@ import CartContext from "./store/CartContext";
 import { NavLink, Link } from "react-router-dom/cjs/react-router-dom.min";
 import AuthContext from "./store/auth-context";
 
-const AppNavbar = ({ onCartClick, username }) => {
+const AppNavbar = ({ onCartClick}) => {
   const { items } = useContext(CartContext);
-  const {isLoggedIn, logout}= useContext(AuthContext);
+  const {isLoggedIn, logout, username}= useContext(AuthContext);
 
   // Calculate total quantity of items
   const totalQuantity = items.reduce((total, item) => total + (+item.quantity), 0);
