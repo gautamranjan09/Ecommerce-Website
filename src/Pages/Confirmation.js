@@ -6,7 +6,7 @@ const Confirmation = ({ onConfirm, orderDetails }) => {
   return (
     <div className="text-center mt-4">
       <h4 className="confirmation-title">Confirm Payment</h4>
-      <Card className="mt-3 confirmation-card w-75 m-auto" >
+      <Card className="mt-3 confirmation-card col-sm-8 m-auto" >
         <Card.Body>
           <Card.Title className="card-title">Order Summary</Card.Title>
           <Card.Text className="order-items">
