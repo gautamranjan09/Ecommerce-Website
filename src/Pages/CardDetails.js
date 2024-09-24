@@ -21,7 +21,7 @@ const CardDetails = ({ onConfirm, onBack }) => {
   };
 
   return (
-    <Form onSubmit={handleSubmit} className="mt-4 payment-form" style={{ width: '40rem', margin: 'auto' }}>
+    <Form onSubmit={handleSubmit} className="mt-4 payment-form w-75 m-auto" >
       <Form.Group controlId="formCardNumber">
         <Form.Label>Card Number</Form.Label>
         <Form.Control
@@ -78,7 +78,7 @@ const CardDetails = ({ onConfirm, onBack }) => {
         </Form.Group>
       </div>
 
-      <div className="mt-4">
+      <div className="mt-4 mx-3 d-flex justify-content-between">
         <Button variant="secondary" onClick={onBack}>Back to Cart</Button>
         <Button variant="success" type="submit" className="ms-2">Confirm Payment</Button>
       </div>

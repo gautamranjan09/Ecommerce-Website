@@ -65,8 +65,8 @@ const Cart = ({ show, handleClose }) => {
                         />{" "}
                         {/* Product Image */}
                         <div className="ml-3">
-                          <span className="cart-item-name">{item.name}</span> -
-                          ₹{item.price}
+                          <span className="cart-item-name">{item.name}</span> - {" "} 
+                          {item.priceText}
                         </div>
                       </div>
                     </Link>

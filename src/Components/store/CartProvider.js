@@ -126,9 +126,9 @@ const CartProvider = ({ children }) => {
 
   // Save cart data whenever it changes
   useEffect(() => {
-    if (authContext.isLoggedIn && authContext.email) {
+  //  if (authContext.isLoggedIn && authContext.email) {+
       saveCartData();
-    }
+  //  }
   }, [cartState, authContext.isLoggedIn, authContext.email]);
 
   const addItemToCart = (item) => {
@@ -145,9 +145,9 @@ const CartProvider = ({ children }) => {
 
   const clearCart = () => {
     dispatch({ type: "CLEAR_CART" });
-    if (authContext.isLoggedIn && authContext.email) {
-      saveCartData();
-    }
+    // if (authContext.isLoggedIn && authContext.email) {
+    //   saveCartData();
+    // }
   };
 
   return (

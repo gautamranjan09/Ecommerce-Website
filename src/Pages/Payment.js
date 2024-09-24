@@ -34,7 +34,7 @@ const Payment = () => {
   };
 
   return (
-    <Container className="payment-container rounded shadow" fluid={true}>
+    <Container className="payment-container rounded shadow " fluid>
       <h1 className="mb-4 text-center">Payment Page</h1>
       {step === 1 && <CartItems onProceed={handleProceedToCardDetails} />}
       {step === 2 && <CardDetails onConfirm={handleConfirmPayment} onBack={handleBackToCart} />}

@@ -6,16 +6,16 @@ const Confirmation = ({ onConfirm, orderDetails }) => {
   return (
     <div className="text-center mt-4">
       <h4 className="confirmation-title">Confirm Payment</h4>
-      <Card className="mt-3 confirmation-card" style={{ width: '40rem', margin: 'auto' }}>
+      <Card className="mt-3 confirmation-card w-75 m-auto" >
         <Card.Body>
           <Card.Title className="card-title">Order Summary</Card.Title>
           <Card.Text className="order-items">
             <strong>Items:</strong>
             <div className="items-list">
               {orderDetails.items.map(item => (
-                <div key={item.id} className="item">
+                <div key={item.id} className="item d-flex align-items-center">
                     <Image src={item.image[0]} rounded className="cart-item-image" />
-                  {item.name} - <span className="item-price">₹{item.price}</span> (x{item.quantity})
+                  {item.name} - <span className="item-price">{item.priceText}</span> (x{item.quantity})
                 </div>
               ))}
             </div>
