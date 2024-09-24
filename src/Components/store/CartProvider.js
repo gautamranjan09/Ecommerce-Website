@@ -1,13 +1,19 @@
-import React, { useEffect, useReducer } from "react";
+import React, { useEffect, useReducer, useContext } from "react";
 import CartContext from "./CartContext";
+import AuthContext from "./auth-context";
 
 const initialState = {
-  items: JSON.parse(localStorage.getItem("cartItems")) || [],
-  totalAmount: parseFloat(localStorage.getItem("totalAmount")) || 0,
+  items: [],
+  totalAmount: 0,
 };
 
 const cartReducer = (state, action) => {
   switch (action.type) {
+    case "SET_CART":
+      return {
+        items: action.payload.items || [],
+        totalAmount: action.payload.totalAmount || 0,
+      };
     case "ADD_ITEM":
       const existingItemIndex = state.items.findIndex(
         (item) => item.id === action.item.id
@@ -16,7 +22,6 @@ const cartReducer = (state, action) => {
 
       let updatedItems;
       if (existingItem) {
-        // If the item exists, increase its quantity
         const updatedItem = {
           ...existingItem,
           quantity: existingItem.quantity + 1,
@@ -24,7 +29,6 @@ const cartReducer = (state, action) => {
         updatedItems = [...state.items];
         updatedItems[existingItemIndex] = updatedItem;
       } else {
-        // If the item doesn't exist, add it with quantity 1
         updatedItems = [...state.items, { ...action.item, quantity: 1 }];
       }
 
@@ -68,11 +72,64 @@ const cartReducer = (state, action) => {
 
 const CartProvider = ({ children }) => {
   const [cartState, dispatch] = useReducer(cartReducer, initialState);
+  const authContext = useContext(AuthContext);
 
+  // Function to encode email for use as a Firebase key
+  const encodeEmail = (email) => {
+    return email.replace(/\./g, ',');
+  };
+
+  // Function to fetch cart data from Firebase
+  const fetchCartData = async () => {
+    if (!authContext.isLoggedIn || !authContext.email) return;
+
+    const encodedEmail = encodeEmail(authContext.email);
+    try {
+      const response = await fetch(`https://authentication-db8ae-default-rtdb.firebaseio.com/carts/${encodedEmail}.json`);
+      if (response.ok) {
+        const data = await response.json();
+        if (data) {
+          dispatch({ type: "SET_CART", payload: data });
+        }
+      }
+    } catch (error) {
+      console.error("Error fetching cart data:", error);
+    }
+  };
+
+  // Function to save cart data to Firebase
+  const saveCartData = async () => {
+    if (!authContext.isLoggedIn || !authContext.email) return;
+
+    const encodedEmail = encodeEmail(authContext.email);
+    try {
+      await fetch(`https://authentication-db8ae-default-rtdb.firebaseio.com/carts/${encodedEmail}.json`, {
+        method: 'PUT',
+        body: JSON.stringify(cartState),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+    } catch (error) {
+      console.error("Error saving cart data:", error);
+    }
+  };
+
+  // Fetch cart data when the component mounts and when the user logs in
   useEffect(() => {
-    localStorage.setItem("cartItems", JSON.stringify(cartState.items));
-    localStorage.setItem("totalAmount", cartState.totalAmount);
-  }, [cartState]);
+    if (authContext.isLoggedIn && authContext.email) {
+      fetchCartData();
+    } else {
+      dispatch({ type: "CLEAR_CART" });
+    }
+  }, [authContext.isLoggedIn, authContext.email]);
+
+  // Save cart data whenever it changes
+  useEffect(() => {
+    if (authContext.isLoggedIn && authContext.email) {
+      saveCartData();
+    }
+  }, [cartState, authContext.isLoggedIn, authContext.email]);
 
   const addItemToCart = (item) => {
     dispatch({ type: "ADD_ITEM", item });
@@ -88,6 +145,9 @@ const CartProvider = ({ children }) => {
 
   const clearCart = () => {
     dispatch({ type: "CLEAR_CART" });
+    if (authContext.isLoggedIn && authContext.email) {
+      saveCartData();
+    }
   };
 
   return (

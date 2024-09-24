@@ -65,6 +65,7 @@
 /* Button Styles */
 button.btn-danger,
 button.btn-primary,
+button.btn-secondary,
 button.btn-success {
   border: none;
   transition: all 0.3s ease;

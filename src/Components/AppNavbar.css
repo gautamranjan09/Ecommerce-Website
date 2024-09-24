@@ -9,6 +9,8 @@
 
 /* Navigation links */
 .navbar .nav-link {
+  display: flex;
+  flex-wrap: nowrap;
   transition: color 0.3s ease; /* Smooth transition for color changes */
 }
 
@@ -21,13 +23,12 @@
   color: white; /* Default color for shopping cart icon */
 }
 
-.navbar .d-flex.align-items-center:hover {
-  color: #ffb300; /* Change color on hover for shopping cart */
-}
+
 
 .navbar .badge {
   background-color: #dc3545; /* Badge color */
   border-radius: 50%;
+  height:fit-content;
   padding: 0.25em 0.5em;
   font-size: 0.75rem;
   position: relative;
@@ -52,7 +53,7 @@
 
 .navbar .btn-outline-light:hover {
   background-color: #ffb300;
-  color: #1a1a2e;
+  color: #252e1a;
 }
 
 /* Click animation for buttons */
@@ -60,19 +61,4 @@
   transform: scale(0.95); /* Button shrinks slightly when clicked */
   background-color: #e6a700; /* Slightly darker yellow for click effect */
 }
-/* Align buttons to the left in toggle mode */
-@media (max-width: 992px) {
-  .navbar-collapse {
-    justify-content: flex-start; /* Align items to the left */
-  }
 
-  .navbar-nav {
-    flex-direction: column; /* Stack links vertically */
-    align-items: flex-start; /* Align to the left */
-  }
-
-  .navbar .btn-outline-light, .cart-icon, .welcome-message {
-
-    align-self: flex-start; /* Align the button to the left */
-  }
-}

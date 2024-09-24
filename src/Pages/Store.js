@@ -3,14 +3,22 @@ import { Container, Row, Col, Card, Button, Dropdown } from "react-bootstrap";
 import "./Store.css"; // Custom CSS for additional styling
 import CartContext from "../Components/store/CartContext";
 import products from "../assets/DummyProducts";
-import { Link, useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { Link, useHistory, useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import AuthContext from "../Components/store/auth-context";
 
 const Store = ({ onShowToast }) => {
     const { addItem } = useContext(CartContext);
-    const [sortOption, setSortOption] = useState("default"); // Default sort option
     const {isLoggedIn}= useContext(AuthContext);
+    const location = useLocation();
     const history = useHistory();
+
+    // Get sort option from URL query parameter
+    const queryParams = new URLSearchParams(location.search);
+    const sortOption = queryParams.get('sort');
+    
+    const updateSortOption = (newSortOption)=>{
+        history.push({pathname:location.pathname,search:`sort=${newSortOption}`});
+    }
 
     // Function to handle sorting of products
     const sortedProducts = () => {
@@ -49,12 +57,12 @@ const Store = ({ onShowToast }) => {
                     </Dropdown.Toggle>
 
                     <Dropdown.Menu>
-                        <Dropdown.Item onClick={() => setSortOption("default")}>Default Order</Dropdown.Item>
+                        <Dropdown.Item onClick={() => updateSortOption("default")}>Default Order</Dropdown.Item>
                         <Dropdown.Divider />
-                        <Dropdown.Item onClick={() => setSortOption("priceLowToHigh")}>Price: Low to High</Dropdown.Item>
-                        <Dropdown.Item onClick={() => setSortOption("priceHighToLow")}>Price: High to Low</Dropdown.Item>
+                        <Dropdown.Item onClick={() => updateSortOption("priceLowToHigh")}>Price: Low to High</Dropdown.Item>
+                        <Dropdown.Item onClick={() => updateSortOption("priceHighToLow")}>Price: High to Low</Dropdown.Item>
                         <Dropdown.Divider />
-                        <Dropdown.Item onClick={() => setSortOption("name")}>Name</Dropdown.Item>
+                        <Dropdown.Item onClick={() => updateSortOption("name")}>Name</Dropdown.Item>
                     </Dropdown.Menu>
                 </Dropdown>
             </div>

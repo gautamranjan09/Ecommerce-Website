@@ -17,10 +17,11 @@ import NotFound from "./Pages/NotFound";
 
 function App() {
   const history = useHistory();
-  const { isLoggedIn } = useContext(AuthContext);
+  const { isLoggedIn , guestLoggedIn} = useContext(AuthContext);
   const [showCart, setShowCart] = useState(false);
   const [showToast, setShowToast] = useState(false);
   const [toastMessage, setToastMessage] = useState("");
+  let mainPath= isLoggedIn? "/main/(home|store|about|contact|thank-you|payment|paymentevent)":"/main/(home|store|about|contact|thank-you)";
 
   const handleCartShow = () => {
     if (isLoggedIn) {
@@ -51,7 +52,7 @@ function App() {
           render={({ match }) => (
             <Switch>
               {/* Main app layout */}
-              <Route path="/main/(home|store|about|contact|thank-you|payment|paymentevent)">
+             {guestLoggedIn && <Route path={mainPath}>
                 <AppNavbar onCartClick={handleCartShow} />
                 <Cart show={showCart} handleClose={handleCartClose} />
                 <MyRoute onShowToast={handleShowToast} />
@@ -64,7 +65,7 @@ function App() {
                   <Toast.Body>{toastMessage}</Toast.Body>
                 </Toast>
                 <Footer />
-              </Route>
+              </Route>}
 
               {/* Fallback to NotFound for invalid "/main/*" routes */}
               <Route path="/main/*">
@@ -74,7 +75,8 @@ function App() {
           )}
         />
         <Route path="*">
-          <NotFound />
+          {/* <NotFound /> */}
+          <Redirect to="/auth"/>
         </Route>
       </Switch>
     </>

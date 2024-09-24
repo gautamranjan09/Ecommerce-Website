@@ -52,7 +52,7 @@ const Footer = () => {
             <p>Get the latest news and updates straight to your inbox!</p>
             <form>
               <input type="email" placeholder="Enter your email" className="form-control mb-2" required />
-              <button type="submit" className="btn btn-primary">Subscribe</button>
+              <button type="submit" className="btn btn-outline-warning">Subscribe</button>
             </form>
           </Col>
         </Row>

@@ -9,7 +9,7 @@ const AuthenticationForm = () => {
   const [key, setKey] = useState('login');
 
   const [isLoading,  setIsLoading] = useState(false);
-  const {login, signup}= useContext(AuthContext);
+  const {login, signup, guestLogin}= useContext(AuthContext);
   const history = useHistory();
   
   //for login and signup data
@@ -75,7 +75,8 @@ const AuthenticationForm = () => {
 
       if (key === 'signup') signup(responseData.idToken, formData.name);
 
-      login(responseData.idToken, responseData.displayName);
+      login(responseData.idToken, responseData.displayName, responseData.email);
+
       key === 'login' ? history.replace('/main/home'):setKey('login');
 
     } catch  (error) {
@@ -121,7 +122,7 @@ const AuthenticationForm = () => {
   return (
     <Container className="AuthenticationForm-container"  fluid={true}>
       <h2 className="AuthenticationForm-title">Welcome to GR Trendz</h2>
-      <Tabs activeKey={key} onSelect={(k) => setKey(k)} className="mb-3 AuthenticationForm-tabs">
+      <Tabs activeKey={key} onSelect={(k) => setKey(k)} className="mb-3 AuthenticationForm-tabs ">
         <Tab eventKey="login" title="Login" className="AuthenticationForm-tab-content">
           <Form onSubmit={submitHandler} ref={loginFormRef}>
             <Form.Group controlId="formBasicEmail">
@@ -192,7 +193,7 @@ const AuthenticationForm = () => {
         </Tab>
       </Tabs>
 
-      <Button variant="secondary" className="AuthenticationForm-continue-guest" onClick={()=> history.push("/main/home")}>
+      <Button variant="secondary" className="AuthenticationForm-continue-guest" onClick={guestLogin}>
         Continue as Guest
       </Button>
     </Container>

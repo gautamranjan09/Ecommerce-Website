@@ -40,7 +40,7 @@ const MyRoute = (props) => {
           <ThankYou />
         </Route>
         {isLoggedIn && (
-          <Route path="/main/payment" exact>
+          <Route path="/main/payment">
             <Payment />
           </Route>
         )}
@@ -49,10 +49,7 @@ const MyRoute = (props) => {
             <PaymentEvent />
           </Route>
         )}
-        {/* Fallback route for unmatched paths */}
-        <Route path="/main/*">
-          <NotFound />
-        </Route>
+        
       </Switch>
     </>
   );

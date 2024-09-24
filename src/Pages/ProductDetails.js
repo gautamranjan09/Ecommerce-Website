@@ -31,7 +31,11 @@ const ProductDetails = ({onShowToast} ) => {
   };
 
   if (!product) {
-    return <h2>Product not found</h2>;
+    return (
+    <Container fluid className="not-found-container text-center align-content-center">
+      <h2 className="not-found-title">Product not found</h2>
+    </Container>
+    );
   }
 
   return (

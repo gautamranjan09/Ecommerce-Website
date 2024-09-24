@@ -1,7 +1,6 @@
   
-  .btn-primary:hover {
-    background-color: #0056b3; /* Darker blue for hover */
-    border-color: #0056b3;
+  button.btn-outline-warning {
+    transition: transform 0.3s ease;
   }
   
   .footer-social-icon {
