@@ -19,6 +19,8 @@ const AuthenticationForm = () => {
 
   //for checking password and confirm password is same
   const [errorMessage,  setErrorMessage] = useState('');
+  const [message, setMessage] = useState('');
+
 
   const submitHandler = async (event) => {
     event.preventDefault();
@@ -73,18 +75,23 @@ const AuthenticationForm = () => {
       const responseData  = await response.json();
       console.log(responseData);
 
-      if (key === 'signup') signup(responseData.idToken, formData.name);
+      if (key === 'signup') {
+        signup(responseData.idToken, formData.name);
+        setMessage("Congratulations! Your account has been successfully created. Welcome aboard!");
+        setKey('login');
+      };
 
       login(responseData.idToken, responseData.displayName, responseData.email);
 
       key === 'login' ? history.replace('/main/home'):setKey('login');
-
+      setErrorMessage("");
     } catch  (error) {
-      alert(error.message);
+      //alert(error.message);
+      setErrorMessage(error.message)
     }
 
     formRef.current.reset()
-    setErrorMessage("");
+   // setErrorMessage("");
   }
 
   const forgotPasswordHandler = async (event) => {
@@ -109,11 +116,11 @@ const AuthenticationForm = () => {
         const responseData = await response.json();
         throw new Error(responseData.error?.message || "Password reset failed!");
       }
-      alert("Password reset email sent. Please check your inbox.");
+      setMessage("Password reset email sent. Please check your inbox.");
       setKey('login');
     } catch (error) {
-      alert(error.message);
-     // setErrorMessage(error.message);
+      //alert(error.message);
+     setErrorMessage(error.message);
     }
 
     forgotPasswordFormRef.current.reset();
@@ -122,6 +129,8 @@ const AuthenticationForm = () => {
   return (
     <Container className="AuthenticationForm-container"  fluid={true}>
       <h2 className="AuthenticationForm-title">Welcome to GR Trendz</h2>
+      { message &&  <Alert variant="success" onClose={() => setMessage("")} dismissible>{message}</Alert> }
+      { errorMessage && <Alert variant='danger' onClose={() => setErrorMessage("")} dismissible>{errorMessage}</Alert> }
       <Tabs activeKey={key} onSelect={(k) => setKey(k)} className="mb-3 AuthenticationForm-tabs ">
         <Tab eventKey="login" title="Login" className="AuthenticationForm-tab-content">
           <Form onSubmit={submitHandler} ref={loginFormRef}>
@@ -146,7 +155,7 @@ const AuthenticationForm = () => {
         </Tab>
 
         <Tab eventKey="signup" title="Sign Up" className="AuthenticationForm-tab-content">
-          { errorMessage && <Alert variant='danger'>{errorMessage}</Alert> }
+          
           <Form onSubmit={submitHandler} ref={signUpFormRef}>
             <Form.Group controlId="formBasicName">
               <Form.Label>Name</Form.Label>

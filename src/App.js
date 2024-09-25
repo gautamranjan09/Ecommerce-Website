@@ -2,7 +2,7 @@ import "./App.css";
 import { Toast } from "react-bootstrap";
 import AppNavbar from "./Components/AppNavbar";
 import Footer from "./Components/Footer";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Cart from "./Components/Cart";
 import MyRoute from "./Routes/MyRoute";
 import AuthContext from "./Components/store/auth-context";
@@ -11,17 +11,26 @@ import {
   Route,
   Switch,
   useHistory,
+  useLocation,
 } from "react-router-dom/cjs/react-router-dom.min";
 import AuthenticationForm from "./Pages/AuthenticationForm";
 import NotFound from "./Pages/NotFound";
+import NProgress from 'nprogress';
+import 'nprogress/nprogress.css';
 
 function App() {
   const history = useHistory();
+  const location = useLocation();
   const { isLoggedIn , guestLoggedIn} = useContext(AuthContext);
   const [showCart, setShowCart] = useState(false);
   const [showToast, setShowToast] = useState(false);
   const [toastMessage, setToastMessage] = useState("");
   let mainPath= isLoggedIn? "/main/(home|store|about|contact|thank-you|payment|paymentevent)":"/main/(home|store|about|contact|thank-you)";
+
+  useEffect(() => {
+    NProgress.start();
+    NProgress.done();
+  }, [location.pathname]);
 
   const handleCartShow = () => {
     if (isLoggedIn) {
