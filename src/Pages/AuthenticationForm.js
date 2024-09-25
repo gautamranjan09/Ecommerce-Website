@@ -21,14 +21,11 @@ const AuthenticationForm = () => {
   const [errorMessage,  setErrorMessage] = useState('');
   const [message, setMessage] = useState('');
 
-
   const submitHandler = async (event) => {
     event.preventDefault();
     let URL;
     setIsLoading(true);
     const formRef = key === 'login' ? loginFormRef : signUpFormRef;
-
-    console.log( formRef.current.email.value);
     
     const  formData = {
       "name": formRef.current.name?.value,
@@ -36,13 +33,9 @@ const AuthenticationForm = () => {
       "password": formRef.current.password?.value,
       "confirmPassword": formRef.current.confirm_password?.value ,
     };
-    console.log(formData);
-    console.log(formData.name, formData.email);
-    console.log(key);
 
     if(key === 'signup'){
       if(formData.password !==  formData.confirmPassword){
-        console.log("error");
         setIsLoading(false);
         setErrorMessage('Passwords do not match');
         return;
@@ -66,14 +59,12 @@ const AuthenticationForm = () => {
         }
       });
 
-      console.log("response",  response);
       setIsLoading(false);
       if(!response.ok){
         const  responseData = await response.json();
         throw new Error(responseData.error?.message || "Authentication failed!");
       }
       const responseData  = await response.json();
-      console.log(responseData);
 
       if (key === 'signup') {
         signup(responseData.idToken, formData.name);
@@ -81,9 +72,10 @@ const AuthenticationForm = () => {
         setKey('login');
       };
 
-      login(responseData.idToken, responseData.displayName, responseData.email);
-
+      const expirationTime = new Date(new Date().getTime() + (+responseData.expiresIn * 1000));
+      login(responseData.idToken, responseData.displayName, responseData.email, expirationTime.toISOString());
       key === 'login' ? history.replace('/main/home'):setKey('login');
+
       setErrorMessage("");
     } catch  (error) {
       //alert(error.message);
