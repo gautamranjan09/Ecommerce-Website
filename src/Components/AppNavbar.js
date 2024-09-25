@@ -15,7 +15,7 @@ const AppNavbar = ({ onCartClick}) => {
 
   return (
     <Navbar className="py-4" variant="dark" expand="lg">
-      <Container >
+      <Container fluid className=" px-lg-5">
         <Navbar.Brand as={Link} to="/main/home" className="fw-bold">
           GR Trendz
         </Navbar.Brand>
@@ -42,7 +42,7 @@ const AppNavbar = ({ onCartClick}) => {
           </Nav>
           <Nav className="ms-auto align-items-lg-center ps-4 ">
             {isLoggedIn && (
-              <Navbar.Text className="welcome-message me-0">
+              <Navbar.Text className="welcome-message me-0" style={{color:"#ffb300"}}>
                 Welcome, {username}
               </Navbar.Text>
             )}

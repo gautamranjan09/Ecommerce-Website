@@ -11,7 +11,7 @@
 /* Title Styles */
 .contactpage-title {
   font-size: 2.5rem; /* Large title */
-  color: #343a40; /* Dark text color */
+  color: #1f12ce; /* Dark text color */
 }
 
 /* Alert Styles */
@@ -30,20 +30,26 @@
 }
 
 .contactpage-label {
-  font-weight: bold; /* Bold labels */
+  font-weight:600; /* Bold labels */
+  color: #ffb300;
+  margin-top: 8px;
 }
 
-.contactpage-form-control {
+.contactpage-container .contactpage-form-control {
   border: 1px solid #ced4da;
   border-radius: 5px;
   transition: border-color 0.3s, box-shadow 0.3s;
 }
 
-.contactpage-form-control:focus {
-  border-color: #007bff; /* Bootstrap primary color */
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+.contactpage-container .contactpage-form-control:focus {
+  border-color: #ffb300; /* Gold focus border */
+  box-shadow: 0 0 0 0.2rem rgba(255, 179, 0, 0.25);
 }
 
+.contactpage-container .contactpage-checkbox .form-check-input:focus{
+  border-color: #ffb300; /* Gold focus border */
+  box-shadow: 0 0 0 0.2rem rgba(255, 179, 0, 0.25);
+}
 /* Button Styles */
 .contactpage-submit-button {
   background-color: #007bff; /* Bootstrap primary color */
@@ -61,9 +67,9 @@
 
 /* FAQ Section Styles */
 .contactpage-faq-title {
-  font-size: 1.5rem; /* Larger title */
+  font-size: 1.9rem; /* Larger title */
   margin-top: 2rem;
-  color: #343a40; /* Dark text color */
+  color: #1f12ce; /* Dark text color */
 }
 
 .contactpage-faq-header {
@@ -77,8 +83,8 @@
 
 /* Contact Information Styles */
 .contactpage-contact-info-title {
-  font-size: 1.5rem; /* Larger title */
-  color: #343a40; /* Dark text color */
+  font-size: 1.9rem; /* Larger title */
+  color: #1f12ce; /* Dark text color */
 }
 
 .contactpage-email,

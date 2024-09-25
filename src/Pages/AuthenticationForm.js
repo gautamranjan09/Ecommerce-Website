@@ -172,7 +172,6 @@ const AuthenticationForm = () => {
               {!isLoading && "Sign Up"}
               {isLoading && <><span className="spinner-border spinner-border-sm"></span> Loading...</>}
             </Button>
-            {isLoading && <p>Loading...</p>}
           </Form>
         </Tab>
 

@@ -129,7 +129,7 @@ const Home = () => {
 
         {/* Featured Events Section */}
         <Container className="my-5">
-          <h2 className="text-center">Featured Events</h2>
+          <h2 className="text-center" style={{color:"#1f12ce"}}>Featured Events</h2>
           {featuredEvents.map((event, index) => (
             <Row className="my-3" key={index}>
               <Col md={12} className="text-center">
@@ -165,23 +165,23 @@ const Home = () => {
 
         {/* Countdown Timer Section */}
         <div className="countdown-section text-center my-5">
-          <h2>Upcoming Event Countdown</h2>
-          <h3>
+          <h2 style={{color:"#1f12ce"}}>Upcoming Event Countdown</h2>
+          <h4>
             {events[5].date} - {events[5].location}
-          </h3>
+          </h4>
           <p>{countdown}</p>
         </div>
 
         {/* Upcoming Events Section */}
         <Container className="my-5">
-          <h2 className="text-center">Upcoming Events</h2>
+          <h2 className="text-center" style={{color:"#1f12ce"}}>Upcoming Events</h2>
           {events.map((event, index) => (
             <Row className="event-row my-4" key={index}>
               <Col md={3} className="text-center date-column">
                 <h4>{event.date}</h4>
               </Col>
               <Col md={6} className="text-center venue-column">
-                <h5>{event.location}</h5>
+                <h4>{event.location}</h4>
                 <p>{event.venue}</p>
                 <p>Price: ₹{event.priceText}</p>
               </Col>
@@ -213,7 +213,7 @@ const Home = () => {
 
         {/* Testimonials Section */}
         <Container className="my-5">
-          <h2 className="text-center">What Our Customers Say</h2>
+          <h2 className="text-center" style={{color:"#1f12ce"}}>What Our Customers Say</h2>
           <Row className="my-3">
             <Col md={12} className="text-center">
               <p>

@@ -110,7 +110,7 @@ const ContactUs = () => {
               />
             </Form.Group>
 
-            <Button variant="primary" type="submit" onClick={() => setIsEntering(false)} className="contactpage-submit-button">
+            <Button variant="primary" type="submit" onClick={() => setIsEntering(false)} className="contactpage-submit-button mt-2">
               Send Message
             </Button>
           </Form>
@@ -148,8 +148,8 @@ const ContactUs = () => {
       <Row className="my-5 text-center">
         <Col md={12}>
           <h4 className="contactpage-contact-info-title">Contact Information</h4>
-          <p className="contactpage-email">Email: support@example.com</p>
-          <p className="contactpage-phone">Phone: +1 (555) 123-4567</p>
+          <p className="contactpage-email">Email: gautamranjan96@gmail.com</p>
+          <p className="contactpage-phone">Phone: +91 9074063364</p>
           <p className="contactpage-social-media">Follow us on social media:</p>
           <p className="contactpage-social-links">
             <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a> | 

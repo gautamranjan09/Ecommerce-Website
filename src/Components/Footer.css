@@ -11,4 +11,8 @@
     color: #ffd700;
     transform: scale(1.1); /* Slightly increase the size on hover */
   }
-  
+ 
+  .footer-form .footer-form-control:focus {
+    border-color: #ffb300; /* Gold focus border */
+    box-shadow: 0 0 0 0.2rem rgba(255, 179, 0, 0.25);
+  }

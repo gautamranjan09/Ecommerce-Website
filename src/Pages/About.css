@@ -43,6 +43,7 @@
   .section-title {
     font-size: 2.5rem; /* Section title size */
     margin-bottom: 1.5rem; /* Space below section title */
+    color: #1f12ce;
   }
   
   .core-values {
