@@ -74,7 +74,7 @@ const Home = () => {
 
   // Countdown logic
   useEffect(() => {
-    const eventDate = new Date("2024-12-12T00:00:00"); // Set your event date here
+    const eventDate = new Date("2025-07-16T00:00:00"); // Set your event date here
     const interval = setInterval(() => {
       const now = new Date();
       const timeLeft = eventDate - now;
